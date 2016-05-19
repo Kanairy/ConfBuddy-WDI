@@ -1618,6 +1618,7 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
 
 
 Started GET "/" for 127.0.0.1 at 2016-05-19 15:12:37 +1000
@@ -1890,6 +1891,7 @@ Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca
 Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-19 15:14:43 +1000
 
 
+
 Started GET "/" for 127.0.0.1 at 2016-05-19 15:27:25 +1000
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Processing by HomeController#index as HTML
@@ -1977,3 +1979,176 @@ ActionController::RoutingError (No route matches [GET] "/types"):
   Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
   Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (98.3ms)
+=======
+=======
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["first_name", "harry"], ["created_at", "2016-05-19 04:55:54.490116"], ["updated_at", "2016-05-19 04:55:54.490116"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "wolf"], ["created_at", "2016-05-19 04:57:11.412937"], ["updated_at", "2016-05-19 04:57:11.412937"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "matches" ("user_one_id") VALUES ($1) RETURNING "id"  [["user_one_id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "matches" SET "user_two_id" = $1 WHERE "matches"."id" = $2[0m  [["user_two_id", 4], ["id", 2]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36mEvent Load (1.9ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "events" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-19 05:05:35.698599"], ["updated_at", "2016-05-19 05:05:35.698599"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "matches" SET "event_id" = $1 WHERE "matches"."id" = $2[0m  [["event_id", 1], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mMatch Load (2.1ms)[0m  [1mSELECT  "matches".* FROM "matches"  ORDER BY "matches"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mEvent Load (0.5ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "event_users" ON "users"."id" = "event_users"."user_id" WHERE "event_users"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "event_users" ("event_id", "user_id") VALUES ($1, $2)[0m  [["event_id", 1], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "event_users" ("event_id", "user_id") VALUES ($1, $2)  [["event_id", 1], ["user_id", 4]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1  [["user_one_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1[0m  [["user_two_id", 1]]
+  [1m[35mMatch Load (0.4ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1  [["user_one_id", 4]]
+  [1m[36mMatch Load (0.3ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1[0m  [["user_two_id", 4]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."event_id" = $1  [["event_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "matches" SET "user_one_id" = $1 WHERE "matches"."id" = $2  [["user_one_id", 1], ["id", 2]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1  [["user_one_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1[0m  [["user_two_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mMatch Load (0.6ms)[0m  [1mSELECT  "matches".* FROM "matches"  ORDER BY "matches"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 0]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 0]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.3ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.4ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.1ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.5ms)[0m  [1mSELECT  "matches".* FROM "matches"  ORDER BY "matches"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1[0m  [["user_one_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1  [["user_two_id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1  [["user_one_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1[0m  [["user_two_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mMatch Load (0.6ms)[0m  [1mSELECT  "matches".* FROM "matches"  ORDER BY "matches"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.6ms)[0m  SELECT  "matches".* FROM "matches"  ORDER BY "matches"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.3ms)[0m  [1mSELECT  "matches".* FROM "matches"  ORDER BY "matches"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1  [["user_one_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1[0m  [["user_two_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1[0m  [["user_one_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1  [["user_two_id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.4ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1  [["user_one_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1[0m  [["user_two_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 1], ["event_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mMatch Load (0.6ms)[0m  SELECT  "matches".* FROM "matches"  ORDER BY "matches"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 4], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 4], ["event_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 4], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 4], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 4], ["event_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 4], ["event_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 4], ["event_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 4], ["event_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 4], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 4], ["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.2ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", nil]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 1], ["event_id", 1]]
+  [1m[35mMatch Load (0.1ms)[0m  SELECT "matches".* FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2  [["user_one_id", 1], ["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "matches" WHERE "matches"."user_one_id" = $1 AND "matches"."event_id" = $2[0m  [["user_one_id", 4], ["event_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2  [["user_two_id", 4], ["event_id", 1]]
+  [1m[36mMatch Load (0.2ms)[0m  [1mSELECT "matches".* FROM "matches" WHERE "matches"."user_two_id" = $1 AND "matches"."event_id" = $2[0m  [["user_two_id", 4], ["event_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
