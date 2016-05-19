@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518071716) do
+ActiveRecord::Schema.define(version: 20160519045041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160518071716) do
     t.string   "sponsor"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "stream"
   end
 
   create_table "matches", force: :cascade do |t|
