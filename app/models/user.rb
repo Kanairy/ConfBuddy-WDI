@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 class User < ActiveRecord::Base
   has_many :event_users
   has_many :events, through: :event_users
@@ -7,7 +5,7 @@ class User < ActiveRecord::Base
   # has_many :matches, :foreign_key => "user_two_id"
 
   def get_all_buddies()
-    Match.where(user_one_id: self.id) << Match.where(user_two_id: self.id) 
+    Match.where(user_one_id: self.id) << Match.where(user_two_id: self.id)
   end
 
   def get_buddy(event_id)
@@ -20,11 +18,3 @@ class User < ActiveRecord::Base
     end
   end
 end
-
-
-  # event 1
-
-
-    # 2     31    43
-# event.user.buddy
->>>>>>> abab1a127e99247ffbebd47d1c4d617624efd8e2
