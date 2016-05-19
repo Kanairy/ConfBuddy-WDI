@@ -3,7 +3,8 @@ module Api
 
       def index
         events = Event.all
-        render json: events.to_json(include: :venue)
+        render json: types.to_json, status: 201
+
       end
 
       def show
