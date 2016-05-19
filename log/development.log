@@ -237,12 +237,12 @@ Migrating to Create (20160518053234)
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to EventsUsers (20160518054210)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer) 
+  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160518054210"]]
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to CreateJoinTableEventUser (20160518055312)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "events_users" ("event_id" integer NOT NULL, "user_id" integer NOT NULL) 
+  [1m[35m (0.5ms)[0m  CREATE TABLE "events_users" ("event_id" integer NOT NULL, "user_id" integer NOT NULL)
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
   [1m[36m (3.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
   [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
@@ -268,12 +268,12 @@ Migrating to Create (20160518053234)
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to EventsUsers (20160518054210)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer) 
+  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160518054210"]]
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to CreateJoinTableEventUser (20160518055312)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "events_users" ("event_id" integer NOT NULL, "user_id" integer NOT NULL) 
+  [1m[35m (0.5ms)[0m  CREATE TABLE "events_users" ("event_id" integer NOT NULL, "user_id" integer NOT NULL)
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Migrating to Altertablename (20160518060817)
@@ -389,7 +389,7 @@ Migrating to Create (20160518053234)
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to EventsUsers (20160518054210)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (0.9ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer) 
+  [1m[35m (0.9ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160518054210"]]
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to Altertablename (20160518060817)
@@ -430,7 +430,7 @@ Migrating to Create (20160518053234)
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to EventsUsers (20160518054210)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer) 
+  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160518054210"]]
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to Altertablename (20160518060817)
@@ -774,6 +774,7 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Migrating to CreateUsers (20160518044753)
   [1m[35m (0.1ms)[0m  BEGIN
@@ -803,7 +804,7 @@ Migrating to Create (20160518053234)
   [1m[35m (0.8ms)[0m  COMMIT
 Migrating to EventsUsers (20160518054210)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer) 
+  [1m[35m (0.8ms)[0m  CREATE TABLE "events_users" ("event_id" integer, "user_id" integer)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160518054210"]]
   [1m[35m (0.4ms)[0m  COMMIT
 Migrating to Altertablename (20160518060817)
@@ -813,7 +814,7 @@ Migrating to Altertablename (20160518060817)
   [1m[35m (0.3ms)[0m  COMMIT
 Migrating to CreateMatchesTable (20160518065909)
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
-  [1m[35m (2.3ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer) 
+  [1m[35m (2.3ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160518065909"]]
   [1m[35m (0.4ms)[0m  COMMIT
 Migrating to AddEventIdToMatches (20160518071716)
@@ -823,6 +824,88 @@ Migrating to AddEventIdToMatches (20160518071716)
   [1m[35m (0.4ms)[0m  COMMIT
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (4.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddStreamToEvents (20160519045041)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddStreamToEvents (20160519045041)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (5.2ms)[0m  [1mALTER TABLE "events" ADD "string" character varying[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160519045041"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'event_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'matches'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddStreamToEvents (20160519045041)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE "events" DROP "string"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160519045041"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (5.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> 9cbcd784a4476a37e4d842caa83d137f5e10df81
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -834,7 +917,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+<<<<<<< HEAD
   [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> 9cbcd784a4476a37e4d842caa83d137f5e10df81
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -846,7 +933,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
   [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> 9cbcd784a4476a37e4d842caa83d137f5e10df81
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -858,7 +949,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+<<<<<<< HEAD
   [1m[36m (4.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> 9cbcd784a4476a37e4d842caa83d137f5e10df81
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -870,7 +965,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
   [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[35m (3.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> 9cbcd784a4476a37e4d842caa83d137f5e10df81
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -882,6 +981,7 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+<<<<<<< HEAD
 
 
 Started GET "/" for 127.0.0.1 at 2016-05-19 14:36:35 +1000
@@ -1450,3 +1550,71 @@ ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=show):
   Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.9ms)
+=======
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddStreamToEvents (20160519045041)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "events" ADD "stream" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160519045041"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'event_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'matches'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
