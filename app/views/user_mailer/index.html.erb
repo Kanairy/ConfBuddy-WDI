@@ -4,15 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to confbuddy.com, <%= @user.name %></h1>
+    <h1>Welcome to confbuddy.com, <%= @user.first_name %></h1>
     <p>
-      You have successfully signed up to confbuddy.com,
-      your username is: <%= @user.login %>.<br>
+      You have successfully signed up to confbuddy.com.<br>
     </p>
     <p>
       You decide to be matched to a buddy for the day of the conference.
-      You've been paired with <%= #user_two %> for the event <%= #event %>. Go
-      and check your buddy linkedin profile in  <%= #linkedin_url %>
+      You've been paired with <%= #user_two %> for the event <%= #event.name %>. Go
+      and check your buddy linkedin profile in  <%= #user_two.linkedin_url %>
 
       You are able to get a free meal at 357 Collins Street
       Food Court on the day of the conference with your buddy, so you will have
@@ -20,7 +19,7 @@
     </p>
 
     <p>
-      The code to present at the food court is :
+      The code to present at the food court is : <% #code %>
     </p>
 
     <p>

@@ -1,18 +1,17 @@
-Welcome to confbuddy.com, <%= @user.name %>
+Welcome to confbuddy.com, <%= @user.first_name %>
 ===============================================
 
-You have successfully signed up to confbuddy.com,
-your username is: <%= @user.login %>.
+You have successfully signed up to confbuddy.com.
 
 You decide to be matched to a buddy for the day of the conference.
-You've been paired with <%= #user_two %> for the event <%= #event %>. Go
-and check your buddy linkedin profile in  <%= #linkedin_url %>
+You've been paired with <%= #user_two %> for the event <%= #event.name %>. Go
+and check your buddy linkedin profile in  <%= #user_two.linkedin_url %>
 
 You are able to get a free meal at 357 Collins Street Food Court on the
 day of the conference with your buddy, so you will have the chance to talk
 and exchange opinion for different topics.
 
-The code to present at the food court is :
+The code to present at the food court is : <% #code %>
 
 
 Thanks for joining and have a great day!
