@@ -1,0 +1,947 @@
+  [1m[36mType Load (2.5ms)[0m  [1mSELECT  "types".* FROM "types"  ORDER BY "types"."id" ASC LIMIT 1[0m
+  [1m[35mEvent Load (0.7ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."type_id" = $1[0m  [["type_id", 1]]
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36mSQL (3.1ms)[0m  [1mUPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["type_id", 1], ["updated_at", "2016-05-20 04:51:13.121226"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mType Load (0.9ms)[0m  [1mSELECT  "types".* FROM "types"  ORDER BY "types"."id" ASC LIMIT 1[0m
+  [1m[35mEvent Load (0.6ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."type_id" = $1[0m  [["type_id", 1]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types" WHERE "types"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "events" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2016-05-20 05:00:11.848324"], ["updated_at", "2016-05-20 05:00:11.848324"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "types" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-20 05:00:23.952956"], ["updated_at", "2016-05-20 05:00:23.952956"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3  [["type_id", 3], ["updated_at", "2016-05-20 05:00:47.699696"], ["id", 2]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE "events"."type_id" = $1  [["type_id", 3]]
+  [1m[36mEvent Load (0.9ms)[0m  [1mSELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1[0m
+  [1m[35mType Load (0.5ms)[0m  SELECT  "types".* FROM "types"  ORDER BY "types"."id" ASC LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."type_id" = $1[0m  [["type_id", 1]]
+  [1m[35mType Load (0.4ms)[0m  SELECT  "types".* FROM "types" WHERE "types"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (118.6ms)[0m  [1mDROP DATABASE IF EXISTS "group_development"[0m
+  [1m[35m (116.9ms)[0m  DROP DATABASE IF EXISTS "group_test"
+  [1m[36m (305.3ms)[0m  [1mCREATE DATABASE "group_development" ENCODING = 'unicode'[0m
+  [1m[35m (237.7ms)[0m  CREATE DATABASE "group_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Javascript - Understanding the weird parts"], ["time", "4th of June // 9.30am"], ["presenter", "Douglas Crockford"], ["description", "The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still remains as the most useful programming language in the future."], ["sponsor", "Zendesk"], ["stream", "hacker"], ["created_at", "2016-05-20 05:23:55.081450"], ["updated_at", "2016-05-20 05:23:55.081450"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why I rather communicate with computers than humans"], ["time", "4th of June // 11.30am"], ["presenter", "Linus Torvalds"], ["description", "Creator of Linux talks about his journey on how he created Linux and why communicating with computers is the most powerful way to communicate."], ["sponsor", "Deloitte"], ["stream", "hacker"], ["created_at", "2016-05-20 05:23:55.087727"], ["updated_at", "2016-05-20 05:23:55.087727"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "How to rock your own programming language"], ["time", "4th of June // 14.30pm"], ["presenter", "Yukihiro Matsumoto"], ["description", "The creator of the famous programming language Ruby shares his secrets on how to create your own programming language that becomes world-known. He explains the basics of smooth and global way to program as well as the secrets of a powerful framework."], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:23:55.089800"], ["updated_at", "2016-05-20 05:23:55.089800"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Keeping that plane in the air - How to code safely in risky industries"], ["time", "4th of June // 16.00pm"], ["presenter", "Leanna Rierson"], ["description", "The aviation security expert Leanna Rierson talks about the importance of coding when working in risky-prone industries and how to minimize bugs when there are human lives in the game"], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:23:55.091737"], ["updated_at", "2016-05-20 05:23:55.091737"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Uber: Why disruption changes the tech industry"], ["time", "4th of June // 9.00am"], ["presenter", "Travis Calanik"], ["description", "CEO of Uber talks about a global business and why disruption has became the buzzword of the industry. He gives practical advice on how to mix something already invented in a new creative way."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:23:55.093661"], ["updated_at", "2016-05-20 05:23:55.093661"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why diversity matters in programming"], ["time", "4th of June // 10.30am"], ["presenter", "Reshma Saujani"], ["description", "The founder of Women who code tells why it means to have more women in the industry and what differs women programmer from a male one. Whe gives practical advice for companies to make their work environment as diverse as possible to maximise business goals."], ["sponsor", "Women Who Code"], ["stream", "hustler"], ["created_at", "2016-05-20 05:23:55.095596"], ["updated_at", "2016-05-20 05:23:55.095596"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "What matters during the first weeks after launching a startup"], ["time", "4th of June // 14.30am"], ["presenter", "Jake Schwartz"], ["description", "Co-Founder of General Assembly tells a story behind the worldwide startup community and tech hub and how it started as a creative co-working space. He also emphasizes the power of global communities in tech industry."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:23:55.097503"], ["updated_at", "2016-05-20 05:23:55.097503"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why we should love CSS - and what's next"], ["time", "4th of June // 9.30am"], ["presenter", "Hampton Catlin"], ["description", "Famous CSS-expert shares his secret to less-hateable CSS and how to fall in love with responsiveness. He also shares his idea what will be the next trends in Front-End development."], ["sponsor", "Envato"], ["stream", "hipster"], ["created_at", "2016-05-20 05:23:55.099308"], ["updated_at", "2016-05-20 05:23:55.099308"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why we need to think coding like children"], ["time", "4th of June // 11.30am"], ["presenter", "Linda Liukas"], ["description", "Writer of the famous children's book to learn coding - Linda Liukas - reveals her vision on how adults should think coding as children and why it is important to teach coding to our kids."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:23:55.101086"], ["updated_at", "2016-05-20 05:23:55.101086"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "The challenge of millon devices - How to control your layout in one step"], ["time", "4th of June // 14.30pm"], ["presenter", "Jon Duckett"], ["description", "The world-known Front-End specialist Jon Duckett gives advice how to handle your layout in the world of million different gadgets and what is the easiest way to make a layout responsive and functioning in different browsers and screens."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:23:55.102940"], ["updated_at", "2016-05-20 05:23:55.102940"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why virtual reality drives social change"], ["time", "4th of June // 16.30pm"], ["presenter", "John D. Carmack"], ["description", "The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world."], ["sponsor", "REA"], ["stream", "hipster"], ["created_at", "2016-05-20 05:23:55.104898"], ["updated_at", "2016-05-20 05:23:55.104898"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "events" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2016-05-20 05:24:05.661539"], ["updated_at", "2016-05-20 05:24:05.661539"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[36m (120.2ms)[0m  [1mDROP DATABASE IF EXISTS "group_development"[0m
+  [1m[35m (121.5ms)[0m  DROP DATABASE IF EXISTS "group_test"
+  [1m[36m (232.3ms)[0m  [1mCREATE DATABASE "group_development" ENCODING = 'unicode'[0m
+  [1m[35m (234.0ms)[0m  CREATE DATABASE "group_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (2.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeTypeToTypeIdInEvents (20160520052441)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "events" RENAME COLUMN "type" TO "type_id"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160520052441"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (6.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'event_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'matches'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2016-05-20 05:27:43.798950"], ["updated_at", "2016-05-20 05:27:43.798950"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "types" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-20 05:27:54.515644"], ["updated_at", "2016-05-20 05:27:54.515644"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."type_id" = $1[0m  [["type_id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["type_id", 1], ["updated_at", "2016-05-20 05:28:09.317380"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2016-05-20 15:28:40 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 928ms (Views: 913.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-20 15:28:41 +1000
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 83ms (Views: 82.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/types.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/types.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/initial.self-79f269ead2aeaa809299033919f9128fa0d9700d0248cad0dcd6442ce43dc389.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/jquery.easing.1.3.self-0170bc905fbddc075a56bdccce1be6a58f3713a14137b607ba9bd9f96fd7835f.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/animation.self-a1028b0bcf2e26331bedf7b90e81103f0707e69fdec488aa951de94b51987767.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/velocity.min.self-5adbb81af5c205a959e06198156b4b31fcd57f02c592e3fb096d7b74e8f401a6.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/hammer.min.self-bf8bdb0953b1a135f96716e362e1f7a8e64168c914fa77ca31973bb70e57a731.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/jquery.hammer.self-73fd69102f356b9abfc9ee242b19895f62454f42cfcfa1f066be71d2c8f41c7a.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/global.self-90649deff3358499c5859330da1363eea3e2bef75c80df5940f3894778f95027.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/collapsible.self-4c13fea644257c8f9384721f7d3bc27bced51754ddf3602b56093e2450a5d9c2.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/dropdown.self-846e8151c8bb8f7e39464f96bd95d48a37ff9831d8f478b6bdcbd563dd2534f0.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/leanModal.self-127e920c37478ac94207994c34d28e40b2d44817a0d93176ed325bdbee80863e.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/parallax.self-7ac34f0f3dcef83deee116ea473a2770cec13e07c8e0dcce08cc2372bbe295d3.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/materialbox.self-8572736f9d17261189da8a9fc91555d63b29498f4f8665328e28261c7c4cdb68.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/tooltip.self-df3538fd067523c8b7f4d50e060340ec0b551ebaba9733e157c404df9a96a185.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/waves.self-26e9b9cfaa9ccbc292ed510f654bd279d69695f5337a14c9800b36e92f96735b.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/tabs.self-0eee47c7ae3f1cfcf49b9619bb067eaf4fa75379be3b78469a0120a8bf972bd3.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/forms.self-e70e77c2b9157926587d6cfd009e8e0eedbaf059bdaa9e1bfe27b186b345598b.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/toasts.self-1eaa9f33c4c3b83f381997876ba6ac53899a5ca72a6b401708c32625fc553adc.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/scrollspy.self-2d0375d44b1d864ecb8e31c25a22c4f3be766284788b0c494ec51df71e2b0e09.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/sideNav.self-196d1801e7592bfd857227ce793d1de69b06fb6ca9d908f44f5618c8564a12d0.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/slider.self-219e35a6b0ade584e951aa0f39fe9856b3ef0e6bb33af123dd4b8ce6757b03cb.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/cards.self-b1de04b6f5f525d63199f556bb55d5b8bdae7170b91bfcb503958bc8ed10945b.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/chips.self-9b19ca899ba360746581059852bf2a40b3338402eef9df9a7806efd8578056dd.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/pushpin.self-101d3fec3225f47ac0da9bd501200d30f92f97f70fb15500c835cb850c962816.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/buttons.self-fc0951c300b1984a00694eabc8c451531be448d646ac073b05e4d2fbf7209302.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/transitions.self-c527b205edfdd1f961487c4c7beaf83c335262accb4dff964341a86eb60fd2f2.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/scrollFire.self-9fb128253d776689dfe2091470e36d2e94c13c6340700135ee679aa20148dffd.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/date_picker/picker.self-7a9d1216fe1172f8e8fd78fb86cfd4da25c909ebd6983cba5da20817d437d92b.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/date_picker/picker.date.self-5924b278beda2df8570f137f72b37e2d0f516acbc11a0994d1abb74380f078ef.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/character_counter.self-8bb854e15067a96db5bff6896d1d9435e4df83cf5bf6877a1d606940661d2588.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize/carousel.self-6f3b9002af3ab4d871a03a44d2e174370720ab31f19a4ee543c1904c32e2befa.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/assets/materialize-sprockets.self-4691589913babdfbd3fb736895105a8e826d4abde842e6d1e8dd2d188e255bc7.js?body=1" for ::1 at 2016-05-20 15:28:42 +1000
+
+
+Started GET "/" for ::1 at 2016-05-20 15:29:18 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 292ms (Views: 284.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/types.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/types.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/initial.self-79f269ead2aeaa809299033919f9128fa0d9700d0248cad0dcd6442ce43dc389.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/jquery.easing.1.3.self-0170bc905fbddc075a56bdccce1be6a58f3713a14137b607ba9bd9f96fd7835f.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/animation.self-a1028b0bcf2e26331bedf7b90e81103f0707e69fdec488aa951de94b51987767.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/velocity.min.self-5adbb81af5c205a959e06198156b4b31fcd57f02c592e3fb096d7b74e8f401a6.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/hammer.min.self-bf8bdb0953b1a135f96716e362e1f7a8e64168c914fa77ca31973bb70e57a731.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/jquery.hammer.self-73fd69102f356b9abfc9ee242b19895f62454f42cfcfa1f066be71d2c8f41c7a.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/global.self-90649deff3358499c5859330da1363eea3e2bef75c80df5940f3894778f95027.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/collapsible.self-4c13fea644257c8f9384721f7d3bc27bced51754ddf3602b56093e2450a5d9c2.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/dropdown.self-846e8151c8bb8f7e39464f96bd95d48a37ff9831d8f478b6bdcbd563dd2534f0.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/leanModal.self-127e920c37478ac94207994c34d28e40b2d44817a0d93176ed325bdbee80863e.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/materialbox.self-8572736f9d17261189da8a9fc91555d63b29498f4f8665328e28261c7c4cdb68.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/parallax.self-7ac34f0f3dcef83deee116ea473a2770cec13e07c8e0dcce08cc2372bbe295d3.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/tabs.self-0eee47c7ae3f1cfcf49b9619bb067eaf4fa75379be3b78469a0120a8bf972bd3.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/tooltip.self-df3538fd067523c8b7f4d50e060340ec0b551ebaba9733e157c404df9a96a185.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/waves.self-26e9b9cfaa9ccbc292ed510f654bd279d69695f5337a14c9800b36e92f96735b.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/toasts.self-1eaa9f33c4c3b83f381997876ba6ac53899a5ca72a6b401708c32625fc553adc.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/sideNav.self-196d1801e7592bfd857227ce793d1de69b06fb6ca9d908f44f5618c8564a12d0.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/scrollspy.self-2d0375d44b1d864ecb8e31c25a22c4f3be766284788b0c494ec51df71e2b0e09.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/forms.self-e70e77c2b9157926587d6cfd009e8e0eedbaf059bdaa9e1bfe27b186b345598b.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/slider.self-219e35a6b0ade584e951aa0f39fe9856b3ef0e6bb33af123dd4b8ce6757b03cb.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/cards.self-b1de04b6f5f525d63199f556bb55d5b8bdae7170b91bfcb503958bc8ed10945b.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/chips.self-9b19ca899ba360746581059852bf2a40b3338402eef9df9a7806efd8578056dd.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/pushpin.self-101d3fec3225f47ac0da9bd501200d30f92f97f70fb15500c835cb850c962816.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/buttons.self-fc0951c300b1984a00694eabc8c451531be448d646ac073b05e4d2fbf7209302.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/transitions.self-c527b205edfdd1f961487c4c7beaf83c335262accb4dff964341a86eb60fd2f2.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/scrollFire.self-9fb128253d776689dfe2091470e36d2e94c13c6340700135ee679aa20148dffd.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/date_picker/picker.self-7a9d1216fe1172f8e8fd78fb86cfd4da25c909ebd6983cba5da20817d437d92b.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/date_picker/picker.date.self-5924b278beda2df8570f137f72b37e2d0f516acbc11a0994d1abb74380f078ef.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/character_counter.self-8bb854e15067a96db5bff6896d1d9435e4df83cf5bf6877a1d606940661d2588.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize/carousel.self-6f3b9002af3ab4d871a03a44d2e174370720ab31f19a4ee543c1904c32e2befa.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/materialize-sprockets.self-4691589913babdfbd3fb736895105a8e826d4abde842e6d1e8dd2d188e255bc7.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-20 15:29:19 +1000
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2016-05-20 05:31:35.140936"], ["updated_at", "2016-05-20 05:31:35.140936"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "types" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-20 05:31:40.816667"], ["updated_at", "2016-05-20 05:31:40.816667"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (120.5ms)[0m  [1mDROP DATABASE IF EXISTS "group_development"[0m
+  [1m[35m (117.7ms)[0m  DROP DATABASE IF EXISTS "group_test"
+  [1m[36m (232.4ms)[0m  [1mCREATE DATABASE "group_development" ENCODING = 'unicode'[0m
+  [1m[35m (233.8ms)[0m  CREATE DATABASE "group_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160520052441')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160519045041')[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "event_users" ("event_id" integer, "user_id" integer) [0m
+  [1m[35m (6.6ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) [0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160520052441')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044753')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044804')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044817')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518053234')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518054210')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518060817')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518065909')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518071716')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Javascript - Understanding the weird parts"], ["time", "4th of June // 9.30am"], ["presenter", "Douglas Crockford"], ["description", "The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still remains as the most useful programming language in the future."], ["sponsor", "Zendesk"], ["stream", "hacker"], ["created_at", "2016-05-20 05:35:50.070290"], ["updated_at", "2016-05-20 05:35:50.070290"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why I rather communicate with computers than humans"], ["time", "4th of June // 11.30am"], ["presenter", "Linus Torvalds"], ["description", "Creator of Linux talks about his journey on how he created Linux and why communicating with computers is the most powerful way to communicate."], ["sponsor", "Deloitte"], ["stream", "hacker"], ["created_at", "2016-05-20 05:35:50.075843"], ["updated_at", "2016-05-20 05:35:50.075843"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "How to rock your own programming language"], ["time", "4th of June // 14.30pm"], ["presenter", "Yukihiro Matsumoto"], ["description", "The creator of the famous programming language Ruby shares his secrets on how to create your own programming language that becomes world-known. He explains the basics of smooth and global way to program as well as the secrets of a powerful framework."], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:35:50.077786"], ["updated_at", "2016-05-20 05:35:50.077786"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Keeping that plane in the air - How to code safely in risky industries"], ["time", "4th of June // 16.00pm"], ["presenter", "Leanna Rierson"], ["description", "The aviation security expert Leanna Rierson talks about the importance of coding when working in risky-prone industries and how to minimize bugs when there are human lives in the game"], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:35:50.079650"], ["updated_at", "2016-05-20 05:35:50.079650"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Uber: Why disruption changes the tech industry"], ["time", "4th of June // 9.00am"], ["presenter", "Travis Calanik"], ["description", "CEO of Uber talks about a global business and why disruption has became the buzzword of the industry. He gives practical advice on how to mix something already invented in a new creative way."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:35:50.081507"], ["updated_at", "2016-05-20 05:35:50.081507"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why diversity matters in programming"], ["time", "4th of June // 10.30am"], ["presenter", "Reshma Saujani"], ["description", "The founder of Women who code tells why it means to have more women in the industry and what differs women programmer from a male one. Whe gives practical advice for companies to make their work environment as diverse as possible to maximise business goals."], ["sponsor", "Women Who Code"], ["stream", "hustler"], ["created_at", "2016-05-20 05:35:50.083355"], ["updated_at", "2016-05-20 05:35:50.083355"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "What matters during the first weeks after launching a startup"], ["time", "4th of June // 14.30am"], ["presenter", "Jake Schwartz"], ["description", "Co-Founder of General Assembly tells a story behind the worldwide startup community and tech hub and how it started as a creative co-working space. He also emphasizes the power of global communities in tech industry."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:35:50.085250"], ["updated_at", "2016-05-20 05:35:50.085250"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why we should love CSS - and what's next"], ["time", "4th of June // 9.30am"], ["presenter", "Hampton Catlin"], ["description", "Famous CSS-expert shares his secret to less-hateable CSS and how to fall in love with responsiveness. He also shares his idea what will be the next trends in Front-End development."], ["sponsor", "Envato"], ["stream", "hipster"], ["created_at", "2016-05-20 05:35:50.087137"], ["updated_at", "2016-05-20 05:35:50.087137"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why we need to think coding like children"], ["time", "4th of June // 11.30am"], ["presenter", "Linda Liukas"], ["description", "Writer of the famous children's book to learn coding - Linda Liukas - reveals her vision on how adults should think coding as children and why it is important to teach coding to our kids."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:35:50.089032"], ["updated_at", "2016-05-20 05:35:50.089032"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "The challenge of millon devices - How to control your layout in one step"], ["time", "4th of June // 14.30pm"], ["presenter", "Jon Duckett"], ["description", "The world-known Front-End specialist Jon Duckett gives advice how to handle your layout in the world of million different gadgets and what is the easiest way to make a layout responsive and functioning in different browsers and screens."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:35:50.091108"], ["updated_at", "2016-05-20 05:35:50.091108"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why virtual reality drives social change"], ["time", "4th of June // 16.30pm"], ["presenter", "John D. Carmack"], ["description", "The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world."], ["sponsor", "REA"], ["stream", "hipster"], ["created_at", "2016-05-20 05:35:50.093349"], ["updated_at", "2016-05-20 05:35:50.093349"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Javascript"], ["created_at", "2016-05-20 05:35:50.100602"], ["updated_at", "2016-05-20 05:35:50.100602"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "CSS"], ["created_at", "2016-05-20 05:35:50.102847"], ["updated_at", "2016-05-20 05:35:50.102847"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mType Load (2.0ms)[0m  [1mSELECT  "types".* FROM "types"  ORDER BY "types"."id" ASC LIMIT 1[0m
+  [1m[35mType Load (0.7ms)[0m  SELECT  "types".* FROM "types"  ORDER BY "types"."id" DESC LIMIT 1
+  [1m[36mType Load (0.6ms)[0m  [1mSELECT  "types".* FROM "types"  ORDER BY "types"."id" DESC LIMIT 1[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE "events"."type_id" = $1  [["type_id", 2]]
+  [1m[36mEvent Load (0.7ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  [1m[35mEvent Load (0.7ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1
+  [1m[36m (120.0ms)[0m  [1mDROP DATABASE IF EXISTS "group_development"[0m
+  [1m[35m (120.0ms)[0m  DROP DATABASE IF EXISTS "group_test"
+  [1m[36m (231.1ms)[0m  [1mCREATE DATABASE "group_development" ENCODING = 'unicode'[0m
+  [1m[35m (232.2ms)[0m  CREATE DATABASE "group_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (4.8ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.8ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160520052441')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160519045041')[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "event_users" ("event_id" integer, "user_id" integer) [0m
+  [1m[35m (7.9ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160520052441')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044753')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044804')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044817')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518053234')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518054210')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518060817')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518065909')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518071716')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Javascript - Understanding the weird parts"], ["time", "4th of June // 9.30am"], ["presenter", "Douglas Crockford"], ["description", "The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still remains as the most useful programming language in the future."], ["sponsor", "Zendesk"], ["stream", "hacker"], ["created_at", "2016-05-20 05:37:52.428796"], ["updated_at", "2016-05-20 05:37:52.428796"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why I rather communicate with computers than humans"], ["time", "4th of June // 11.30am"], ["presenter", "Linus Torvalds"], ["description", "Creator of Linux talks about his journey on how he created Linux and why communicating with computers is the most powerful way to communicate."], ["sponsor", "Deloitte"], ["stream", "hacker"], ["created_at", "2016-05-20 05:37:52.434233"], ["updated_at", "2016-05-20 05:37:52.434233"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "How to rock your own programming language"], ["time", "4th of June // 14.30pm"], ["presenter", "Yukihiro Matsumoto"], ["description", "The creator of the famous programming language Ruby shares his secrets on how to create your own programming language that becomes world-known. He explains the basics of smooth and global way to program as well as the secrets of a powerful framework."], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:37:52.436248"], ["updated_at", "2016-05-20 05:37:52.436248"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Keeping that plane in the air - How to code safely in risky industries"], ["time", "4th of June // 16.00pm"], ["presenter", "Leanna Rierson"], ["description", "The aviation security expert Leanna Rierson talks about the importance of coding when working in risky-prone industries and how to minimize bugs when there are human lives in the game"], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:37:52.438187"], ["updated_at", "2016-05-20 05:37:52.438187"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Uber: Why disruption changes the tech industry"], ["time", "4th of June // 9.00am"], ["presenter", "Travis Calanik"], ["description", "CEO of Uber talks about a global business and why disruption has became the buzzword of the industry. He gives practical advice on how to mix something already invented in a new creative way."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:37:52.440045"], ["updated_at", "2016-05-20 05:37:52.440045"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why diversity matters in programming"], ["time", "4th of June // 10.30am"], ["presenter", "Reshma Saujani"], ["description", "The founder of Women who code tells why it means to have more women in the industry and what differs women programmer from a male one. Whe gives practical advice for companies to make their work environment as diverse as possible to maximise business goals."], ["sponsor", "Women Who Code"], ["stream", "hustler"], ["created_at", "2016-05-20 05:37:52.441908"], ["updated_at", "2016-05-20 05:37:52.441908"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "What matters during the first weeks after launching a startup"], ["time", "4th of June // 14.30am"], ["presenter", "Jake Schwartz"], ["description", "Co-Founder of General Assembly tells a story behind the worldwide startup community and tech hub and how it started as a creative co-working space. He also emphasizes the power of global communities in tech industry."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:37:52.443757"], ["updated_at", "2016-05-20 05:37:52.443757"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why we should love CSS - and what's next"], ["time", "4th of June // 9.30am"], ["presenter", "Hampton Catlin"], ["description", "Famous CSS-expert shares his secret to less-hateable CSS and how to fall in love with responsiveness. He also shares his idea what will be the next trends in Front-End development."], ["sponsor", "Envato"], ["stream", "hipster"], ["created_at", "2016-05-20 05:37:52.445587"], ["updated_at", "2016-05-20 05:37:52.445587"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why we need to think coding like children"], ["time", "4th of June // 11.30am"], ["presenter", "Linda Liukas"], ["description", "Writer of the famous children's book to learn coding - Linda Liukas - reveals her vision on how adults should think coding as children and why it is important to teach coding to our kids."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:37:52.447415"], ["updated_at", "2016-05-20 05:37:52.447415"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "The challenge of millon devices - How to control your layout in one step"], ["time", "4th of June // 14.30pm"], ["presenter", "Jon Duckett"], ["description", "The world-known Front-End specialist Jon Duckett gives advice how to handle your layout in the world of million different gadgets and what is the easiest way to make a layout responsive and functioning in different browsers and screens."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:37:52.449215"], ["updated_at", "2016-05-20 05:37:52.449215"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why virtual reality drives social change"], ["time", "4th of June // 16.30pm"], ["presenter", "John D. Carmack"], ["description", "The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world."], ["sponsor", "REA"], ["stream", "hipster"], ["created_at", "2016-05-20 05:37:52.451070"], ["updated_at", "2016-05-20 05:37:52.451070"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Javascript"], ["created_at", "2016-05-20 05:37:52.458603"], ["updated_at", "2016-05-20 05:37:52.458603"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "CSS"], ["created_at", "2016-05-20 05:37:52.461004"], ["updated_at", "2016-05-20 05:37:52.461004"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3  [["type_id", 2], ["updated_at", "2016-05-20 05:37:52.476369"], ["id", 8]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["type_id", 1], ["updated_at", "2016-05-20 05:37:52.481175"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mEvent Load (1.9ms)[0m  [1mSELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1[0m
+  [1m[35mEvent Load (0.6ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1
+  [1m[36mType Load (0.4ms)[0m  [1mSELECT  "types".* FROM "types" WHERE "types"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[36m (119.4ms)[0m  [1mDROP DATABASE IF EXISTS "group_development"[0m
+  [1m[35m (120.1ms)[0m  DROP DATABASE IF EXISTS "group_test"
+  [1m[36m (231.6ms)[0m  [1mCREATE DATABASE "group_development" ENCODING = 'unicode'[0m
+  [1m[35m (232.1ms)[0m  CREATE DATABASE "group_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160520052441')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160519045041')[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "event_users" ("event_id" integer, "user_id" integer) [0m
+  [1m[35m (6.5ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160520052441')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044753')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044804')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044817')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518053234')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518054210')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518060817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518065909')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518071716')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Javascript - Understanding the weird parts"], ["time", "4th of June // 9.30am"], ["presenter", "Douglas Crockford"], ["description", "The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still remains as the most useful programming language in the future."], ["sponsor", "Zendesk"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:05.406229"], ["updated_at", "2016-05-20 05:39:05.406229"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why I rather communicate with computers than humans"], ["time", "4th of June // 11.30am"], ["presenter", "Linus Torvalds"], ["description", "Creator of Linux talks about his journey on how he created Linux and why communicating with computers is the most powerful way to communicate."], ["sponsor", "Deloitte"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:05.411884"], ["updated_at", "2016-05-20 05:39:05.411884"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "How to rock your own programming language"], ["time", "4th of June // 14.30pm"], ["presenter", "Yukihiro Matsumoto"], ["description", "The creator of the famous programming language Ruby shares his secrets on how to create your own programming language that becomes world-known. He explains the basics of smooth and global way to program as well as the secrets of a powerful framework."], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:05.414016"], ["updated_at", "2016-05-20 05:39:05.414016"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Keeping that plane in the air - How to code safely in risky industries"], ["time", "4th of June // 16.00pm"], ["presenter", "Leanna Rierson"], ["description", "The aviation security expert Leanna Rierson talks about the importance of coding when working in risky-prone industries and how to minimize bugs when there are human lives in the game"], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:05.416374"], ["updated_at", "2016-05-20 05:39:05.416374"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Uber: Why disruption changes the tech industry"], ["time", "4th of June // 9.00am"], ["presenter", "Travis Calanik"], ["description", "CEO of Uber talks about a global business and why disruption has became the buzzword of the industry. He gives practical advice on how to mix something already invented in a new creative way."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:39:05.418356"], ["updated_at", "2016-05-20 05:39:05.418356"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why diversity matters in programming"], ["time", "4th of June // 10.30am"], ["presenter", "Reshma Saujani"], ["description", "The founder of Women who code tells why it means to have more women in the industry and what differs women programmer from a male one. Whe gives practical advice for companies to make their work environment as diverse as possible to maximise business goals."], ["sponsor", "Women Who Code"], ["stream", "hustler"], ["created_at", "2016-05-20 05:39:05.420617"], ["updated_at", "2016-05-20 05:39:05.420617"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "What matters during the first weeks after launching a startup"], ["time", "4th of June // 14.30am"], ["presenter", "Jake Schwartz"], ["description", "Co-Founder of General Assembly tells a story behind the worldwide startup community and tech hub and how it started as a creative co-working space. He also emphasizes the power of global communities in tech industry."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:39:05.422586"], ["updated_at", "2016-05-20 05:39:05.422586"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why we should love CSS - and what's next"], ["time", "4th of June // 9.30am"], ["presenter", "Hampton Catlin"], ["description", "Famous CSS-expert shares his secret to less-hateable CSS and how to fall in love with responsiveness. He also shares his idea what will be the next trends in Front-End development."], ["sponsor", "Envato"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:05.424525"], ["updated_at", "2016-05-20 05:39:05.424525"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why we need to think coding like children"], ["time", "4th of June // 11.30am"], ["presenter", "Linda Liukas"], ["description", "Writer of the famous children's book to learn coding - Linda Liukas - reveals her vision on how adults should think coding as children and why it is important to teach coding to our kids."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:05.426522"], ["updated_at", "2016-05-20 05:39:05.426522"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "The challenge of millon devices - How to control your layout in one step"], ["time", "4th of June // 14.30pm"], ["presenter", "Jon Duckett"], ["description", "The world-known Front-End specialist Jon Duckett gives advice how to handle your layout in the world of million different gadgets and what is the easiest way to make a layout responsive and functioning in different browsers and screens."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:05.428334"], ["updated_at", "2016-05-20 05:39:05.428334"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why virtual reality drives social change"], ["time", "4th of June // 16.30pm"], ["presenter", "John D. Carmack"], ["description", "The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world."], ["sponsor", "REA"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:05.430455"], ["updated_at", "2016-05-20 05:39:05.430455"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Javascript"], ["created_at", "2016-05-20 05:39:05.438804"], ["updated_at", "2016-05-20 05:39:05.438804"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "CSS"], ["created_at", "2016-05-20 05:39:05.441157"], ["updated_at", "2016-05-20 05:39:05.441157"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3  [["type_id", 2], ["updated_at", "2016-05-20 05:39:05.456883"], ["id", 8]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["type_id", 1], ["updated_at", "2016-05-20 05:39:05.462430"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mEvent Load (0.9ms)[0m  [1mSELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1[0m
+  [1m[35mType Load (0.4ms)[0m  SELECT  "types".* FROM "types" WHERE "types"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.6ms)[0m  [1mSELECT  "types".* FROM "types"  ORDER BY "types"."id" ASC LIMIT 1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."type_id" = $1  [["type_id", 1]]
+  [1m[36m (119.6ms)[0m  [1mDROP DATABASE IF EXISTS "group_development"[0m
+  [1m[35m (121.1ms)[0m  DROP DATABASE IF EXISTS "group_test"
+  [1m[36m (233.2ms)[0m  [1mCREATE DATABASE "group_development" ENCODING = 'unicode'[0m
+  [1m[35m (230.7ms)[0m  CREATE DATABASE "group_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160520052441')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160519045041')[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "event_users" ("event_id" integer, "user_id" integer) [0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) 
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160520052441')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044753')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044804')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044817')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518053234')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518054210')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518060817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518065909')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518071716')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Javascript - Understanding the weird parts"], ["time", "4th of June // 9.30am"], ["presenter", "Douglas Crockford"], ["description", "The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still remains as the most useful programming language in the future."], ["sponsor", "Zendesk"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:53.543518"], ["updated_at", "2016-05-20 05:39:53.543518"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why I rather communicate with computers than humans"], ["time", "4th of June // 11.30am"], ["presenter", "Linus Torvalds"], ["description", "Creator of Linux talks about his journey on how he created Linux and why communicating with computers is the most powerful way to communicate."], ["sponsor", "Deloitte"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:53.549498"], ["updated_at", "2016-05-20 05:39:53.549498"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "How to rock your own programming language"], ["time", "4th of June // 14.30pm"], ["presenter", "Yukihiro Matsumoto"], ["description", "The creator of the famous programming language Ruby shares his secrets on how to create your own programming language that becomes world-known. He explains the basics of smooth and global way to program as well as the secrets of a powerful framework."], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:53.551664"], ["updated_at", "2016-05-20 05:39:53.551664"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Keeping that plane in the air - How to code safely in risky industries"], ["time", "4th of June // 16.00pm"], ["presenter", "Leanna Rierson"], ["description", "The aviation security expert Leanna Rierson talks about the importance of coding when working in risky-prone industries and how to minimize bugs when there are human lives in the game"], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:39:53.553700"], ["updated_at", "2016-05-20 05:39:53.553700"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Uber: Why disruption changes the tech industry"], ["time", "4th of June // 9.00am"], ["presenter", "Travis Calanik"], ["description", "CEO of Uber talks about a global business and why disruption has became the buzzword of the industry. He gives practical advice on how to mix something already invented in a new creative way."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:39:53.555746"], ["updated_at", "2016-05-20 05:39:53.555746"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why diversity matters in programming"], ["time", "4th of June // 10.30am"], ["presenter", "Reshma Saujani"], ["description", "The founder of Women who code tells why it means to have more women in the industry and what differs women programmer from a male one. Whe gives practical advice for companies to make their work environment as diverse as possible to maximise business goals."], ["sponsor", "Women Who Code"], ["stream", "hustler"], ["created_at", "2016-05-20 05:39:53.557789"], ["updated_at", "2016-05-20 05:39:53.557789"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "What matters during the first weeks after launching a startup"], ["time", "4th of June // 14.30am"], ["presenter", "Jake Schwartz"], ["description", "Co-Founder of General Assembly tells a story behind the worldwide startup community and tech hub and how it started as a creative co-working space. He also emphasizes the power of global communities in tech industry."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:39:53.559812"], ["updated_at", "2016-05-20 05:39:53.559812"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why we should love CSS - and what's next"], ["time", "4th of June // 9.30am"], ["presenter", "Hampton Catlin"], ["description", "Famous CSS-expert shares his secret to less-hateable CSS and how to fall in love with responsiveness. He also shares his idea what will be the next trends in Front-End development."], ["sponsor", "Envato"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:53.561773"], ["updated_at", "2016-05-20 05:39:53.561773"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why we need to think coding like children"], ["time", "4th of June // 11.30am"], ["presenter", "Linda Liukas"], ["description", "Writer of the famous children's book to learn coding - Linda Liukas - reveals her vision on how adults should think coding as children and why it is important to teach coding to our kids."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:53.563691"], ["updated_at", "2016-05-20 05:39:53.563691"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "The challenge of millon devices - How to control your layout in one step"], ["time", "4th of June // 14.30pm"], ["presenter", "Jon Duckett"], ["description", "The world-known Front-End specialist Jon Duckett gives advice how to handle your layout in the world of million different gadgets and what is the easiest way to make a layout responsive and functioning in different browsers and screens."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:53.565541"], ["updated_at", "2016-05-20 05:39:53.565541"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why virtual reality drives social change"], ["time", "4th of June // 16.30pm"], ["presenter", "John D. Carmack"], ["description", "The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world."], ["sponsor", "REA"], ["stream", "hipster"], ["created_at", "2016-05-20 05:39:53.567419"], ["updated_at", "2016-05-20 05:39:53.567419"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Javascript"], ["created_at", "2016-05-20 05:39:53.574239"], ["updated_at", "2016-05-20 05:39:53.574239"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "CSS"], ["created_at", "2016-05-20 05:39:53.576778"], ["updated_at", "2016-05-20 05:39:53.576778"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3  [["type_id", 1], ["updated_at", "2016-05-20 05:39:53.592050"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[36mEvent Load (1.0ms)[0m  [1mSELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1[0m
+  [1m[35mEvent Load (0.7ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1
+  [1m[36mType Load (0.4ms)[0m  [1mSELECT  "types".* FROM "types" WHERE "types"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.7ms)[0m  SELECT  "types".* FROM "types"  ORDER BY "types"."id" ASC LIMIT 1
+  [1m[36mType Load (0.7ms)[0m  [1mSELECT  "types".* FROM "types"  ORDER BY "types"."id" DESC LIMIT 1[0m
+  [1m[35mType Load (0.6ms)[0m  SELECT  "types".* FROM "types"  ORDER BY "types"."id" DESC LIMIT 1
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."type_id" = $1[0m  [["type_id", 2]]
+  [1m[35mType Load (0.6ms)[0m  SELECT  "types".* FROM "types"  ORDER BY "types"."id" DESC LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."type_id" = $1[0m  [["type_id", 2]]
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36m (118.2ms)[0m  [1mDROP DATABASE IF EXISTS "group_development"[0m
+  [1m[35m (116.5ms)[0m  DROP DATABASE IF EXISTS "group_test"
+  [1m[36m (234.3ms)[0m  [1mCREATE DATABASE "group_development" ENCODING = 'unicode'[0m
+  [1m[35m (234.0ms)[0m  CREATE DATABASE "group_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "event_users" ("event_id" integer, "user_id" integer) 
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) [0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) 
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160520052441')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044753')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044804')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044817')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518053234')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518054210')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518060817')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518065909')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518071716')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160519045041')[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "event_users" ("event_id" integer, "user_id" integer) [0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying, "type_id" integer, "time" character varying, "presenter" character varying, "description" text, "sponsor" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stream" character varying) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "matches" ("id" serial primary key, "user_one_id" integer, "user_two_id" integer, "event_id" integer) [0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "types" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "buddy" boolean, "strength" character varying, "seeking" character varying, "linkedin_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160520052441')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044753')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518044804')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518044817')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518053234')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518054210')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518060817')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160518065909')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160518071716')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160519045041')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Javascript - Understanding the weird parts"], ["time", "4th of June // 9.30am"], ["presenter", "Douglas Crockford"], ["description", "The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still remains as the most useful programming language in the future."], ["sponsor", "Zendesk"], ["stream", "hacker"], ["created_at", "2016-05-20 05:41:37.402740"], ["updated_at", "2016-05-20 05:41:37.402740"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why I rather communicate with computers than humans"], ["time", "4th of June // 11.30am"], ["presenter", "Linus Torvalds"], ["description", "Creator of Linux talks about his journey on how he created Linux and why communicating with computers is the most powerful way to communicate."], ["sponsor", "Deloitte"], ["stream", "hacker"], ["created_at", "2016-05-20 05:41:37.408675"], ["updated_at", "2016-05-20 05:41:37.408675"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "How to rock your own programming language"], ["time", "4th of June // 14.30pm"], ["presenter", "Yukihiro Matsumoto"], ["description", "The creator of the famous programming language Ruby shares his secrets on how to create your own programming language that becomes world-known. He explains the basics of smooth and global way to program as well as the secrets of a powerful framework."], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:41:37.410937"], ["updated_at", "2016-05-20 05:41:37.410937"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Keeping that plane in the air - How to code safely in risky industries"], ["time", "4th of June // 16.00pm"], ["presenter", "Leanna Rierson"], ["description", "The aviation security expert Leanna Rierson talks about the importance of coding when working in risky-prone industries and how to minimize bugs when there are human lives in the game"], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 05:41:37.412866"], ["updated_at", "2016-05-20 05:41:37.412866"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Uber: Why disruption changes the tech industry"], ["time", "4th of June // 9.00am"], ["presenter", "Travis Calanik"], ["description", "CEO of Uber talks about a global business and why disruption has became the buzzword of the industry. He gives practical advice on how to mix something already invented in a new creative way."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:41:37.414739"], ["updated_at", "2016-05-20 05:41:37.414739"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why diversity matters in programming"], ["time", "4th of June // 10.30am"], ["presenter", "Reshma Saujani"], ["description", "The founder of Women who code tells why it means to have more women in the industry and what differs women programmer from a male one. Whe gives practical advice for companies to make their work environment as diverse as possible to maximise business goals."], ["sponsor", "Women Who Code"], ["stream", "hustler"], ["created_at", "2016-05-20 05:41:37.416903"], ["updated_at", "2016-05-20 05:41:37.416903"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "What matters during the first weeks after launching a startup"], ["time", "4th of June // 14.30am"], ["presenter", "Jake Schwartz"], ["description", "Co-Founder of General Assembly tells a story behind the worldwide startup community and tech hub and how it started as a creative co-working space. He also emphasizes the power of global communities in tech industry."], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 05:41:37.419122"], ["updated_at", "2016-05-20 05:41:37.419122"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why we should love CSS - and what's next"], ["time", "4th of June // 9.30am"], ["presenter", "Hampton Catlin"], ["description", "Famous CSS-expert shares his secret to less-hateable CSS and how to fall in love with responsiveness. He also shares his idea what will be the next trends in Front-End development."], ["sponsor", "Envato"], ["stream", "hipster"], ["created_at", "2016-05-20 05:41:37.421152"], ["updated_at", "2016-05-20 05:41:37.421152"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why we need to think coding like children"], ["time", "4th of June // 11.30am"], ["presenter", "Linda Liukas"], ["description", "Writer of the famous children's book to learn coding - Linda Liukas - reveals her vision on how adults should think coding as children and why it is important to teach coding to our kids."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:41:37.423446"], ["updated_at", "2016-05-20 05:41:37.423446"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "The challenge of millon devices - How to control your layout in one step"], ["time", "4th of June // 14.30pm"], ["presenter", "Jon Duckett"], ["description", "The world-known Front-End specialist Jon Duckett gives advice how to handle your layout in the world of million different gadgets and what is the easiest way to make a layout responsive and functioning in different browsers and screens."], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 05:41:37.425334"], ["updated_at", "2016-05-20 05:41:37.425334"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why virtual reality drives social change"], ["time", "4th of June // 16.30pm"], ["presenter", "John D. Carmack"], ["description", "The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world."], ["sponsor", "REA"], ["stream", "hipster"], ["created_at", "2016-05-20 05:41:37.427244"], ["updated_at", "2016-05-20 05:41:37.427244"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Javascript"], ["created_at", "2016-05-20 05:41:37.434143"], ["updated_at", "2016-05-20 05:41:37.434143"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "CSS"], ["created_at", "2016-05-20 05:41:37.436323"], ["updated_at", "2016-05-20 05:41:37.436323"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3  [["type_id", 1], ["updated_at", "2016-05-20 05:41:37.451378"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "events" SET "type_id" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["type_id", 2], ["updated_at", "2016-05-20 05:41:37.456541"], ["id", 8]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (0.7ms)[0m  SELECT "events".* FROM "events"
+  [1m[36mType Load (0.5ms)[0m  [1mSELECT "types".* FROM "types"[0m
+  [1m[35mType Load (0.7ms)[0m  SELECT  "types".* FROM "types"  ORDER BY "types"."id" ASC LIMIT 1
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."type_id" = $1[0m  [["type_id", 1]]
+  [1m[35mEvent Load (0.7ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT  "types".* FROM "types" WHERE "types"."id" = $1 LIMIT 1[0m  [["id", 1]]
