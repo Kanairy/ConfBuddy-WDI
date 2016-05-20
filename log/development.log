@@ -2265,3 +2265,135 @@ ActionController::RoutingError (No route matches [GET] "/types"):
   [1m[35m (0.4ms)[0m  COMMIT
 
 >>>>>>> 9b015e0b0db068601f7957fe8ba725600c5898b5
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Javascript - Understanding the weird parts"], ["time", "4th of June // 9.30am"], ["presenter", "Douglas Crockford"], ["description", "The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still remains as the most useful programming language in the future."], ["sponsor", "Zendesk"], ["stream", "hacker"], ["created_at", "2016-05-20 00:00:30.027626"], ["updated_at", "2016-05-20 00:00:30.027626"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why I rather communicate with computers than humans"], ["time", "4th of June // 11.30am"], ["presenter", "Linus Torvalds"], ["description", "Creator of Linux talks about his journey on how he created Linux and why communicating with computers is the most powerful way to communicate."], ["sponsor", "Deloitte"], ["stream", "hacker"], ["created_at", "2016-05-20 00:00:30.035310"], ["updated_at", "2016-05-20 00:00:30.035310"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "How to rock your own programming language"], ["time", "4th of June // 14.30pm"], ["presenter", "Yukihiro Matsumoto"], ["description", "The creator of the famous programming language Ruby shares his secrets on how to create your own programming language that becomes world-known. He explains the basics of smooth and global way to program as well as the secrets of a powerful framework."], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 00:00:30.037639"], ["updated_at", "2016-05-20 00:00:30.037639"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Keeping that plane in the air - How to code safely in risky industries"], ["time", "4th of June // 16.00pm"], ["presenter", "Leanna Rierson"], ["description", "The aviation security expert Leanna Rierson talks about the importance of coding when working in risky-prone industries and how to minimize bugs when there are human lives in the game"], ["sponsor", "General Assembly"], ["stream", "hacker"], ["created_at", "2016-05-20 00:00:30.039549"], ["updated_at", "2016-05-20 00:00:30.039549"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Uber: Why disruption changes the tech industry"], ["time", "4th of June // 9.00am"], ["presenter", "Travis Calanik"], ["description", "Keynote"], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 00:00:30.041373"], ["updated_at", "2016-05-20 00:00:30.041373"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why diversity matters in programming"], ["time", "4th of June // 10.30am"], ["presenter", "Reshma Saujani"], ["description", "Keynote"], ["sponsor", "Women Who Code"], ["stream", "hustler"], ["created_at", "2016-05-20 00:00:30.043305"], ["updated_at", "2016-05-20 00:00:30.043305"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "What matters during the first weeks after launching a startup"], ["time", "4th of June // 14.30am"], ["presenter", "Jake Schwartz"], ["description", "Keynote"], ["sponsor", "General Assembly"], ["stream", "hustler"], ["created_at", "2016-05-20 00:00:30.045178"], ["updated_at", "2016-05-20 00:00:30.045178"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Why we should love CSS - and what's next"], ["time", "4th of June // 9.30am"], ["presenter", "Hampton Catlin"], ["description", "Keynote"], ["sponsor", "Envato"], ["stream", "hipster"], ["created_at", "2016-05-20 00:00:30.046926"], ["updated_at", "2016-05-20 00:00:30.046926"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why we need to think coding like children"], ["time", "4th of June // 11.30am"], ["presenter", "Linda Liukas"], ["description", "Workshop"], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 00:00:30.048585"], ["updated_at", "2016-05-20 00:00:30.048585"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "The challenge of millon devices - How to control your layout in one step"], ["time", "4th of June // 14.30pm"], ["presenter", "Jon Duckett"], ["description", "Workshop"], ["sponsor", "General Assembly"], ["stream", "hipster"], ["created_at", "2016-05-20 00:00:30.050370"], ["updated_at", "2016-05-20 00:00:30.050370"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "time", "presenter", "description", "sponsor", "stream", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Why virtual reality drives social change"], ["time", "4th of June // 16.30pm"], ["presenter", "John D. Carmack"], ["description", "Keynote"], ["sponsor", "REA"], ["stream", "hipster"], ["created_at", "2016-05-20 00:00:30.052455"], ["updated_at", "2016-05-20 00:00:30.052455"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-20 10:01:51 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 264ms (Views: 253.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/types.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-05-20 10:01:51 +1000
+
+
+Started GET "/assets/types.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-20 10:01:51 +1000
+
+
+Started GET "/events" for 127.0.0.1 at 2016-05-20 10:01:52 +1000
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (1.2ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 47ms (Views: 26.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/events" for 127.0.0.1 at 2016-05-20 10:02:46 +1000
+Processing by Api::EventsController#index as */*
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `types' for #<Api::EventsController:0x007f9a83b3f270>):
+  app/controllers/api/events_controller.rb:6:in `index'
+
+
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.1ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (64.7ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (128.2ms)
+
+
+Started GET "/api/events" for 127.0.0.1 at 2016-05-20 10:03:34 +1000
+Processing by Api::EventsController#index as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `types' for #<Api::EventsController:0x007f9a888c5238>):
+  app/controllers/api/events_controller.rb:6:in `index'
+
+
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.2ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.2ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (97.4ms)
+
+
+Started GET "/api/types" for 127.0.0.1 at 2016-05-20 10:03:47 +1000
+Processing by Api::TypesController#index as */*
+  [1m[36mType Load (0.9ms)[0m  [1mSELECT "types".* FROM "types"[0m
+Completed 201 Created in 6ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/events" for 127.0.0.1 at 2016-05-20 10:03:56 +1000
+Processing by Api::EventsController#index as */*
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `types' for #<Api::EventsController:0x007f9a81d431b8>):
+  app/controllers/api/events_controller.rb:6:in `index'
+
+
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.5ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Katy/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (95.9ms)
+
+
+Started GET "/api/events" for 127.0.0.1 at 2016-05-20 10:04:45 +1000
+Processing by Api::EventsController#index as */*
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events"
+Completed 201 Created in 19ms (Views: 0.1ms | ActiveRecord: 2.6ms)
