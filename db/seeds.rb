@@ -16,27 +16,27 @@ Event.create(name:"Keeping that plane in the air - How to code safely in risky i
 
 
 
-## я люблю тебя
+
 
 
 ############# Above the hacker events
 
-Event.create(name:"Uber: Why disruption changes the tech industry", time:"4th of June // 9.00am", presenter:"Travis Calanik",description:"Keynote",sponsor:"General Assembly", stream:"hustler");
+Event.create(name:"Uber: Why disruption changes the tech industry", time:"4th of June // 9.00am", presenter:"Travis Calanik",description:"CEO of Uber talks about a global business and why disruption has became the buzzword of the industry. He gives practical advice on how to mix something already invented in a new creative way.",sponsor:"General Assembly", stream:"hustler");
 
-Event.create(name:"Why diversity matters in programming", time:"4th of June // 10.30am", presenter:"Reshma Saujani",description:"Keynote",sponsor:"Women Who Code", stream:"hustler");
+Event.create(name:"Why diversity matters in programming", time:"4th of June // 10.30am", presenter:"Reshma Saujani",description:"The founder of Women who code tells why it means to have more women in the industry and what differs women programmer from a male one. Whe gives practical advice for companies to make their work environment as diverse as possible to maximise business goals.",sponsor:"Women Who Code", stream:"hustler");
 
-Event.create(name:"What matters during the first weeks after launching a startup", time:"4th of June // 14.30am", presenter:"Jake Schwartz",description:"Keynote",sponsor:"General Assembly", stream:"hustler");
+Event.create(name:"What matters during the first weeks after launching a startup", time:"4th of June // 14.30am", presenter:"Jake Schwartz",description:"Co-Founder of General Assembly tells a story behind the worldwide startup community and tech hub and how it started as a creative co-working space. He also emphasizes the power of global communities in tech industry.",sponsor:"General Assembly", stream:"hustler");
 
 
 ############# Above the hustler events
 
-Event.create(name:"Why we should love CSS - and what's next", time:"4th of June // 9.30am", presenter:"Hampton Catlin",description:"Keynote",sponsor:"Envato", stream:"hipster");
+Event.create(name:"Why we should love CSS - and what's next", time:"4th of June // 9.30am", presenter:"Hampton Catlin",description:"Famous CSS-expert shares his secret to less-hateable CSS and how to fall in love with responsiveness. He also shares his idea what will be the next trends in Front-End development.",sponsor:"Envato", stream:"hipster");
 
-Event.create(name:"Why we need to think coding like children", time:"4th of June // 11.30am", presenter:"Linda Liukas",description:"Workshop",sponsor:"General Assembly", stream:"hipster");
+Event.create(name:"Why we need to think coding like children", time:"4th of June // 11.30am", presenter:"Linda Liukas",description:"Writer of the famous children's book to learn coding - Linda Liukas - reveals her vision on how adults should think coding as children and why it is important to teach coding to our kids.",sponsor:"General Assembly", stream:"hipster");
 
-Event.create(name:"The challenge of millon devices - How to control your layout in one step", time:"4th of June // 14.30pm", presenter:"Jon Duckett",description:"Workshop",sponsor:"General Assembly", stream:"hipster");
+Event.create(name:"The challenge of millon devices - How to control your layout in one step", time:"4th of June // 14.30pm", presenter:"Jon Duckett",description:"The world-known Front-End specialist Jon Duckett gives advice how to handle your layout in the world of million different gadgets and what is the easiest way to make a layout responsive and functioning in different browsers and screens.",sponsor:"General Assembly", stream:"hipster");
 
-Event.create(name:"Why virtual reality drives social change", time:"4th of June // 16.30pm", presenter:"John D. Carmack",description:"Keynote",sponsor:"REA", stream:"hipster");
+Event.create(name:"Why virtual reality drives social change", time:"4th of June // 16.30pm", presenter:"John D. Carmack",description:"The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world.",sponsor:"REA", stream:"hipster");
 
 ############# Above the hipster events
 
