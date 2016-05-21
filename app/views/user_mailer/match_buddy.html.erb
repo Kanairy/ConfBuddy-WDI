@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to confbuddy.com, <%= @user.first_name %></h1>
+    <p>
+      You have successfully signed up to confbuddy.com.<br>
+    </p>
+    <p>
+      You decide to be matched to a buddy for the day of the conference.
+      You've been paired with <%= @buddy.first_name %> <%= @buddy.last_name %>
+      for the event <h3><%= @event.name %></h3>. Go
+      and check your buddy linkedin profile on  <%= @buddy.linkedin_url %>
+
+      You are able to get a free meal at the Food Court on the day of
+      the conference with your buddy, so you will have
+      the chance to talk and exchange opinions about different topics.
+    </p>
+
+    <p>
+      Present this code to get your free meal:<br>
+
+      <%= image_tag attachments['qr.png'].url %>
+    </p>
+
+    <p>
+      Thanks for joining and have a great day!
+    </p>
+  </body>
+</html>
