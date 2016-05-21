@@ -10,16 +10,19 @@
     </p>
     <p>
       You decide to be matched to a buddy for the day of the conference.
-      You've been paired with <%=  %> for the event <%=  %>. Go
-      and check your buddy linkedin profile in  <%=  %>
+      You've been paired with <%= @buddy.first_name %> <%= @buddy.last_name %>
+      for the event <h3><%= @event.name %></h3>. Go
+      and check your buddy linkedin profile on  <%= @buddy.linkedin_url %>
 
-      You are able to get a free meal at 357 Collins Street
-      Food Court on the day of the conference with your buddy, so you will have
-      the chance to talk and exchange opinion for different topics.
+      You are able to get a free meal at the Food Court on the day of
+      the conference with your buddy, so you will have
+      the chance to talk and exchange opinions about different topics.
     </p>
 
     <p>
-      The code to present at the food court is : <%  %>
+      Present this code to get your free meal:<br>
+
+      <%= image_tag attachments['qr.png'].url %>
     </p>
 
     <p>

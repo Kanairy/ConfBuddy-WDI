@@ -1161,3 +1161,590 @@ Content-Transfer-Encoding: 7bit
   </body>
 </html>
 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "events" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Javascript"], ["created_at", "2016-05-20 22:59:22.122812"], ["updated_at", "2016-05-20 22:59:22.122812"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from irb_binding at (irb):8)
+
+UserMailer#match_buddy: processed outbound mail in 1.7ms
+
+UserMailer#match_buddy: processed outbound mail in 1.4ms
+
+UserMailer#match_buddy: processed outbound mail in 1.2ms
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "javascript"], ["created_at", "2016-05-20 23:02:44.722720"], ["updated_at", "2016-05-20 23:02:44.722720"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (6.6ms)
+
+UserMailer#match_buddy: processed outbound mail in 26.6ms
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "javascript"], ["created_at", "2016-05-20 23:03:55.496700"], ["updated_at", "2016-05-20 23:03:55.496700"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.6ms
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "javascript"], ["created_at", "2016-05-20 23:13:23.860025"], ["updated_at", "2016-05-20 23:13:23.860025"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.1ms
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#match_buddy: processed outbound mail in 212.4ms
+
+UserMailer#match_buddy: processed outbound mail in 0.6ms
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#match_buddy: processed outbound mail in 11.9ms
+
+Sent mail to katy.dattoma@gmail.com (6666.1ms)
+Date: Sat, 21 May 2016 09:14:23 +1000
+From: confbuddy@gmail.com
+To: katy.dattoma@gmail.com
+Message-ID: <573f9a4f6b5a3_96923fe45cc5e20487393@Katys-Mac.local.mail>
+Subject: Matching buddy
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to confbuddy.com, </h1>
+    <p>
+      You have successfully signed up to confbuddy.com.<br>
+    </p>
+    <p>
+      You decide to be matched to a buddy for the day of the conference.
+      You've been paired with  for the event javascript. Go
+      and check your buddy linkedin profile in  
+
+      You are able to get a free meal at 357 Collins Street
+      Food Court on the day of the conference with your buddy, so you will have
+      the chance to talk and exchange opinion for different topics.
+    </p>
+
+    <p>
+      The code to present at the food court is : 
+    </p>
+
+    <p>
+      Thanks for joining and have a great day!
+    </p>
+  </body>
+</html>
+
+  <p>
+    Thank you from the team of confbuddy
+  </p>
+  </body>
+</html>
+
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (0.5ms)
+
+UserMailer#match_buddy: processed outbound mail in 12.4ms
+
+Sent mail to katy.dattoma@gmail.com (4972.9ms)
+Date: Sat, 21 May 2016 09:16:00 +1000
+From: confbuddy@gmail.com
+To: katy.dattoma@gmail.com
+Message-ID: <573f9ab0b5c39_96923fe45cc5e20487465@Katys-Mac.local.mail>
+Subject: Matching buddy
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to confbuddy.com, </h1>
+    <p>
+      You have successfully signed up to confbuddy.com.<br>
+    </p>
+    <p>
+      You decide to be matched to a buddy for the day of the conference.
+      You've been paired with  for the event <h3>javascript</h3>. Go
+      and check your buddy linkedin profile in  
+
+      You are able to get a free meal at 357 Collins Street
+      Food Court on the day of the conference with your buddy, so you will have
+      the chance to talk and exchange opinion for different topics.
+    </p>
+
+    <p>
+      The code to present at the food court is : 
+    </p>
+
+    <p>
+      Thanks for joining and have a great day!
+    </p>
+  </body>
+</html>
+
+  <p>
+    Thank you from the team of confbuddy
+  </p>
+  </body>
+</html>
+
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "Cretino"], ["created_at", "2016-05-20 23:19:13.303293"], ["updated_at", "2016-05-20 23:19:13.303293"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (0.4ms)
+
+UserMailer#match_buddy: processed outbound mail in 12.9ms
+
+Sent mail to katy.dattoma@gmail.com (5398.3ms)
+Date: Sat, 21 May 2016 09:19:24 +1000
+From: confbuddy@gmail.com
+To: katy.dattoma@gmail.com
+Message-ID: <573f9b7c4c0a2_96923fe45cc5e20487520@Katys-Mac.local.mail>
+Subject: Matching buddy
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to confbuddy.com, </h1>
+    <p>
+      You have successfully signed up to confbuddy.com.<br>
+    </p>
+    <p>
+      You decide to be matched to a buddy for the day of the conference.
+      You've been paired with Cretino for the event <h3>javascript</h3>. Go
+      and check your buddy linkedin profile in  
+
+      You are able to get a free meal at 357 Collins Street
+      Food Court on the day of the conference with your buddy, so you will have
+      the chance to talk and exchange opinion for different topics.
+    </p>
+
+    <p>
+      The code to present at the food court is : 
+    </p>
+
+    <p>
+      Thanks for joining and have a great day!
+    </p>
+  </body>
+</html>
+
+  <p>
+    Thank you from the team of confbuddy
+  </p>
+  </body>
+</html>
+
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (1.7ms)
+
+UserMailer#match_buddy: processed outbound mail in 15.4ms
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1[0m  [["first_name", "Cretino"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1  [["name", "javascript"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (2.9ms)
+
+UserMailer#match_buddy: processed outbound mail in 15.6ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.0ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1[0m  [["first_name", "Cretino"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1  [["name", "javascript"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 1.0ms
+
+UserMailer#match_buddy: processed outbound mail in 0.8ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.4ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 0.9ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.0ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 1.0ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1  [["name", "javascript"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1[0m  [["first_name", "Cretino"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.1ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 2.2ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.6ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 1.0ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.0ms
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 1.1ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1  [["name", "javascript"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1[0m  [["first_name", "Cretino"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.3ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 1.1ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1  [["name", "javascript"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1[0m  [["first_name", "Cretino"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.1ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+
+UserMailer#match_buddy: processed outbound mail in 1.1ms
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "katy.dattoma@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1  [["name", "javascript"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1[0m  [["first_name", "Cretino"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+UserMailer#match_buddy: processed outbound mail in 1.5ms
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "katy.dattoma@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."name" = $1 LIMIT 1[0m  [["name", "javascript"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."first_name" = $1 LIMIT 1  [["first_name", "Cretino"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  Rendered user_mailer/match_buddy.html.erb within layouts/mailer (8.4ms)
+
+UserMailer#match_buddy: processed outbound mail in 37.8ms
+
+Sent mail to katy.dattoma@gmail.com (8154.1ms)
+Date: Sat, 21 May 2016 11:37:57 +1000
+From: confbuddy@gmail.com
+To: katy.dattoma@gmail.com
+Message-ID: <573fbbf5a8a74_96923fe45cc5e20487821@Katys-Mac.local.mail>
+Subject: Matching buddy
+Mime-Version: 1.0
+Content-Type: multipart/related;
+ boundary="--==_mimepart_573fbbf5a749c_96923fe45cc5e204877ec";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_573fbbf5a749c_96923fe45cc5e204877ec
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to confbuddy.com, </h1>
+    <p>
+      You have successfully signed up to confbuddy.com.<br>
+    </p>
+    <p>
+      You decide to be matched to a buddy for the day of the conference.
+      You've been paired with Cretino 
+      for the event <h3>javascript</h3>. Go
+      and check your buddy linkedin profile on  
+
+      You are able to get a free meal at the Food Court on the day of
+      the conference with your buddy, so you will have
+      the chance to talk and exchange opinions about different topics.
+    </p>
+
+    <p>
+      Present this code to get your free meal:<br>
+
+      <img src="cid:573fbbf5a6339_96923fe45cc5e204876d6@Katys-Mac.local.mail" />
+    </p>
+
+    <p>
+      Thanks for joining and have a great day!
+    </p>
+  </body>
+</html>
+
+  <p>
+    Thank you from the team of confbuddy
+  </p>
+  </body>
+</html>
+
+----==_mimepart_573fbbf5a749c_96923fe45cc5e204877ec
+Content-Type: image/png;
+ filename=qr.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+ filename=qr.png
+Content-ID: <573fbbf5a6339_96923fe45cc5e204876d6@Katys-Mac.local.mail>
+
+iVBORw0KGgoAAAANSUhEUgAAAMsAAADLCAYAAADA+2czAAAAAXNSR0IArs4c
+6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAA5fSURB
+VHhe7dNBjuzIFUNRL8fb8sZ6q238AYEeXLFoRj6lVH4HuDNmhKp/x7/+XmtF
+9rGsFdrHslZoH8taoX0sa4X2sawV2seyVmgfy1qhfSxrhfaxrBXax7JWaB/L
+WqF9LGuF9rGsFfrYY/n3f/56fJ9CZ5/WorOSPoXOflqfcvxY6OOe3ik687QW
+nZV0is58eqeOHgt90Fs6Qeed1qKzkk7QeW/pxD6WAp13WovOSjpB572lE/Vj
+oQ95Wy0667QWnZXUorPeVmsfS4HOOq1FZyW16Ky31drHUqCzTmvRWUktOutt
+tUYey5PQ96m70TckPQl9n3oS+j7V2sdyI/qGpCeh71NPQt+nWvtYbkTfkPQk
+9H3qSej7VGsfy43oG5KehL5PPQl9n2rtY7kRfUPSk9D3qSeh71OtfSw3om9I
+ehL6PvUk9H2qtY/lRvQNSU9C36eehL5Ptb76WOi3aSn6rWrRWafdjb5BObRX
+KfptWop+q1pfeSz0m7af0G9Ui8467W70DcqhvfoJ/abtJ/Qb1drHUqCzTrsb
+fYNyaK9+Qr9p+wn9RrVufyy0P82hvWrRWafdjb5BObRXDu1Pc2ivWvtYCnTW
+aXejb1AO7ZVD+9Mc2qvWPpYCnXXa3egblEN75dD+NIf2qrWPpUBnnXY3+gbl
+0F45tD/Nob1q7WO5QHvl0D6pRWepCXSPcmh/mkN71drHcoH2yqF9UovOUhPo
+HuXQ/jSH9qq1j+UC7ZVD+6QWnaUm0D3Kof1pDu1Vax/LBdorh/ZJLTpLTaB7
+lEP70xzaq9Y+lgu0Vw7tk1p0lppA9yiH9qc5tFetfSwXaK8c2ie16Cw1ge5R
+Du1Pc2ivWvtYLtBeObRPatFZagLdoxzan+bQXrX2sVygvXJorxzaJzm0T3Jo
+rxzan+bQXrX2sVygvXJorxzaJzm0T3Jorxzan+bQXrX2sVygvXJorxzaJzm0
+T3Jorxzan+bQXrX2sVygvXJorxzaJzm0T3Jorxzan+bQXrVufyx/0G/afkK/
+UQ7tlUN75dA+yaF9kkN79RP6TdtP6DeqtY/lAu2VQ3vl0D7JoX2SQ3v1E/pN
+20/oN6r1lcci9Nu0FP1WObRXDu2VQ/skh/ZJDu1Vin6blqLfqtZXH8sd6PtU
+i85KatFZSRPoHvUk9H2qtY+lQGclteispAl0j3oS+j7V2sdSoLOSWnRW0gS6
+Rz0JfZ9q7WMp0FlJLToraQLdo56Evk+19rEU6KykFp2VNIHuUU9C36da+1gK
+dFZSi85KmkD3qCeh71OtfSwFOiupRWclTaB71JPQ96nWyGN5Sw7tlUN75dBe
+ObRXDu2VQ/u31drHcoH2yqG9cmivHNorh/bKof3bau1juUB75dBeObRXDu2V
+Q3vl0P5tterH8gd9yJtyaK8c2iuH9sqhvXJorxzav6kT+1gu0F45tFcO7ZVD
+e+XQXjm0f1Mnjh7LH/RBb8mhvXJorxzaK4f2yqG9cmj/lk4dPxahj3t6Du2V
+Q3vl0F45tFcO7ZVD+6f3KR97LP9P6B9EteisJIf2SYvtYynQ/2CqRWclObRP
+WmwfS4H+B1MtOivJoX3SYvtYCvQ/mGrRWUkO7ZMW28dSoP/BVIvOSnJon7TY
+PpYC/Q+mWnRWkkP7pMX2sRTofzDVorOSHNonLVY/FvqPnDSB7jnNoX2SQ3vl
+0P60CXRP0pPsY7nIoX2SQ3vl0P60CXRP0pPsY7nIoX2SQ3vl0P60CXRP0pPs
+Y7nIoX2SQ3vl0P60CXRP0pPsY7nIoX2SQ3vl0P60CXRP0pPsY7nIoX2SQ3vl
+0P60CXRP0pPsY7nIoX2SQ3vl0P60CXRP0pOMPJYWnZU0ge5RDu3VBLonaQLd
+860m7GO5QPcoh/ZqAt2TNIHu+VYT9rFcoHuUQ3s1ge5JmkD3fKsJ+1gu0D3K
+ob2aQPckTaB7vtWEfSwX6B7l0F5NoHuSJtA932rCPpYLdI9yaK8m0D1JE+ie
+bzVhH8sFukc5tFcT6J6kCXTPt5pQP5YJ9Ecrh/ZJLTpLObRPatFZ38qhvXJo
+n9Tax1Kgs5RD+6QWnfWtHNorh/ZJrX0sBTpLObRPatFZ38qhvXJon9Tax1Kg
+s5RD+6QWnfWtHNorh/ZJrX0sBTpLObRPatFZ38qhvXJon9Tax1Kgs5RD+6QW
+nfWtHNorh/ZJrX0sBTpLObRPatFZ38qhvXJon9SqHwt9hJpA9yQ5tE9yaJ/U
+orMmm0D3qBadpVr7WIoc2ie16KzJJtA9qkVnqdY+liKH9kktOmuyCXSPatFZ
+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
+TkSuQmCC
+
+----==_mimepart_573fbbf5a749c_96923fe45cc5e204877ec--
+
