@@ -1,6 +1,275 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
-  color: red;
+body {
+ font-family: 'Inconsolata';
+}
+
+nav ul a,
+nav .brand-logo {
+ color: #444;
+}
+
+h5 {
+ color: black !important;
+}
+
+p {
+ line-height: 2rem;
+}
+
+i.material-icons {
+ color: black;
+}
+
+.button-collapse {
+ color: black;
+}
+
+#index-banner {
+  padding-top: 110px;
+  border-bottom: 1px solid grey !important;
+  height: 470px;
+}
+
+.navbar-fixed {
+  position: fixed;
+  opacity: 0.7;
+}
+
+.parallax-container {
+ min-height: 400px;
+ line-height: 0;
+ height: auto;
+ color: rgba(255,255,255,.9);
+}
+ .parallax-container .section {
+   width: 100%;
+ }
+
+@media only screen and (max-width : 992px) {
+ .parallax-container .section {
+   position: absolute;
+   top: 40%;
+ }
+ #index-banner .section {
+   top: 10%;
+ }
+}
+
+
+@media only screen and (max-width : 600px) {
+ #index-banner .section {
+   top: 0;
+ }
+}
+
+.parallax-container.valign-wrapper {
+ border-top: 1px solid grey;
+ border-bottom: 1px solid grey;
+}
+
+.icon-block {
+ padding: 0 15px;
+}
+.icon-block .material-icons {
+ font-size: inherit;
+}
+
+footer.page-footer {
+ border-top: 1px solid grey;
+ margin: 0;
+}
+
+body {
+font-family: 'Inconsolata';
+}
+
+#all {
+ background-color: silver;
+}
+
+.element {
+ font-size: 5em;
+ padding: 5px;
+}
+
+.eventdetails {
+ text-align: justify;
+}
+
+.schedule {
+ display: inline-block;
+ padding: 20px;
+ border: 1px dashed black;
+ margin: 20px;
+ width: fixed;
+ width: 620px;
+}
+
+.hackers {
+ border: 1px solid black;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ width: 580px;
+}
+
+.hackers:hover {
+ background-color: silver;
+ transition: 1s;
+ opacity: 0.5;
+ cursor: crosshair;
+}
+
+.hustlers {
+ border: 1px solid black;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ width: 580px;
+}
+
+.hustlers:hover {
+ background-color: silver;
+ transition: 2s;
+ opacity: 0.5;
+ cursor: crosshair;
+}
+
+.hipsters {
+ border: 1px solid black;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ width: 580px;
+}
+
+.hipsters:hover {
+ background-color: silver;
+ transition: 1s;
+ opacity: 0.5;
+ cursor: crosshair;
+}
+
+
+.eventheader {
+ padding: 10px;
+ font-size: 22px !important;
+ margin: 0px;
+}
+
+.eventstream {
+ display: inline-flex;
+ align-items: center;
+ width: 20%;
+ padding: 5px;
+ border: 1px solid black;
+ background-color: #c5cae9;
+ font-size: 22px;
+ vertical-align: top;
+}
+
+.eventstream:hover {
+background-color: grey;
+transition: 1s;
+cursor: crosshair;
+}
+
+.typed-cursor{
+   opacity: 1;
+   -webkit-animation: blink 0.7s infinite;
+   -moz-animation: blink 0.7s infinite;
+   animation: blink 0.7s infinite;
+}
+@keyframes blink{
+   0% { opacity:1; }
+   50% { opacity:0; }
+   100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+   0% { opacity:1; }
+   50% { opacity:0; }
+   100% { opacity:1; }
+}
+@-moz-keyframes blink{
+   0% { opacity:1; }
+   50% { opacity:0; }
+   100% { opacity:1; }
+}
+
+
+#modal {
+ top: 0;
+ left: 0;
+ position: fixed;
+ display: none;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, .4);
+ padding: 20px;
+}
+
+
+#close-modal {
+ position: absolute;
+ z-index: 2;
+ left: 96%;
+ font-size: 1.5em;
+ border-radius: 50%;
+ border: 3px solid white;
+ height: 2em;
+ width: 2em;
+ text-align: center;
+ background-color: silver;
+ line-height: .8625em;
+ color: white;
+}
+
+#close-modal:hover {
+ cursor: pointer;
+}
+
+
+.modal-content {
+ position: relative;
+ margin: 0 30%;
+ background-color: white;
+ top: 27%;
+ width: 40%;
+}
+
+.modal-body {
+ position: absolute;
+ width: 100%;
+ top: 10px;
+ background-color: white;
+ border: 10px solid white;
+ z-index: 1;
+}
+
+img {
+ width: 100%;
+}
+
+button {
+ padding: 5px;
+ font-size: 1.5em;
+ color: white;
+ background-color: silver;
+ border: none;
+ border: 1px solid black;
+}
+
+button:hover {
+ cursor: pointer;
+}
+
+@media (max-width: 500px) {
+ #close-modal {
+   left: 92%;
+ }
+
+ .modal-content {
+   margin: 0 20%;
+   top: 25%;
+   width: 60%;
+ }
 }
