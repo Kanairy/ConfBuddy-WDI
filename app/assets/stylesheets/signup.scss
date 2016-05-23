@@ -1,0 +1,40 @@
+
+h1, h2, h3, h4, h5, h6, p, label, input, a {
+  font-family: 'Inconsolata';
+}
+
+
+.line-divider{
+  width: 98%;
+  height:2px;
+  background-color: black;
+  color: black;
+  margin: 20px auto;
+  display: block;
+}
+
+.signup-coding-option{
+  background-color: lightgrey;
+  height: 200px;
+  position: relative;
+  border: 2px white solid;
+
+}
+
+.signup-coding-option-inner{
+  position: absolute;
+    bottom: 0px;
+    padding: 5px;
+    left: 0;
+    width: 100%;
+    border-top: 1px red solid;
+}
+
+.signup-coding-image{
+  height: 120px;
+  width: auto;
+  margin: auto;
+  margin-top: 18px;
+  display: block;
+
+}
