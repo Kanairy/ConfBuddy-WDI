@@ -1,0 +1,114 @@
+
+<!-- Single Page Sign Up -->
+
+
+<!-- Tabs at the top -->
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a href="#tab1" id="tab-ul-1">User</a></li>
+              <li class="tab col s3"><a href="#tab2" id="tab-ul-2">Profile</a></li>
+              <li class="tab col s3 "><a href="#tab3" id="tab-ul-3"> Payment</a></li>
+              <li class="tab col s3"><a href="#tab4" id="tab-ul-4">Confirm</a></li>
+            </ul>
+          </div>
+
+<!-- TAB 1 - User Info - Name, Email , Password -->
+          <div id="tab1" class="col s12">
+            <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="last_name" type="text" class="validate">
+                      <label for="last_name">Last Name</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="password" type="password" class="validate">
+                      <label for="password">Password</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <li class="tab col s3"><a id="signup-next-1">Test 2</a></li>
+          </div>
+
+
+<!-- TAB 2 - User Profile - Likes  -->
+          <div id="tab2" class="col s12">
+
+            <form action="#">
+                <p>
+                  <input name="group1" type="radio" id="test1" />
+                  <label for="test1">Red</label>
+                </p>
+                <p>
+                  <input name="group1" type="radio" id="test2" />
+                  <label for="test2">Yellow</label>
+                </p>
+                <p>
+                  <input class="with-gap" name="group1" type="radio" id="test3"  />
+                  <label for="test3">Green</label>
+                </p>
+
+              </form>
+              <div class="row">
+                   <form class="col s12">
+                     <div class="row">
+                       <div class="input-field col s12">
+                         <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+                         <label for="textarea1">Textarea</label>
+                       </div>
+                     </div>
+                   </form>
+                 </div>
+
+
+
+
+          </div>
+
+<!-- TAB 3 - Payment -->
+          <div id="tab3" class="col s12">
+
+
+
+          </div>
+
+
+<!-- TAB 4 - Confirm -->
+          <div id="tab4" class="col s12">
+            <a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>button</a>
+
+          </div>
+        </div>
+
+
+<!-- jQuery  -->
+
+      <script>
+      $(document).ready(function() {
+      $('input#input_text, textarea#textarea1').characterCounter();
+      });
+      $("#signup-next-1").click(function(){
+      $("#tab-ul-1").removeClass("active");
+      $("#tab-ul-2").addClass("active");
+
+      $("#tab1").css("display","none");
+      $("#tab2").css("display","block");
+
+      });
+      </script>
