@@ -10,12 +10,28 @@
 
 }
 
+.index-events-card-img{
+  width: 100%;
+  position: absolute;
+  display: block;
+}
+
+.index-events-card-text{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: blue;
+
+}
+
 .index-events-card{
   width: 32.3333333%;
   display: inline-block;
   height: 300px;
   margin: 0 auto;
   background-color: black;
+  position: relative;
 }
 
 body {
