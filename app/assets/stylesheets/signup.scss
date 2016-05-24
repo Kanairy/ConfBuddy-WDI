@@ -1,3 +1,25 @@
+.signup-form-section-1,.signup-form-section-2{
+  display: block;
+}
+
+
+.signup-form-title{
+  text-align: center;
+}
+
+.lightgrey{
+  background-color: blue;
+  transition: .25s;
+
+}
+
+.green{
+  background-color: green;
+  transition: .25s;
+}
+
+
+
 
 h1, h2, h3, h4, h5, h6, p, label, input, a {
   font-family: 'Inconsolata';
@@ -18,6 +40,21 @@ h1, h2, h3, h4, h5, h6, p, label, input, a {
   height: 200px;
   position: relative;
   border: 2px white solid;
+  border-radius: 5px;
+  font-size: 14px;
+
+
+}
+
+.signup-coding-option:hover{
+  background-color: green;
+  transition: .5s;
+  color: white;
+  font-weight: bold;
+  transform: scale(1.05);
+  z-index: 10000;
+  border: 5px grey solid;
+
 
 }
 
