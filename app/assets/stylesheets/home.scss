@@ -1,6 +1,23 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.index-events-container{
+  width: 100%;
+  height:600px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+
+}
+
+.index-events-card{
+  width: 32.3333333%;
+  display: inline-block;
+  height: 300px;
+  margin: 0 auto;
+  background-color: black;
+}
+
 body {
  font-family: 'Inconsolata';
 }
