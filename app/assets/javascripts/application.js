@@ -17,3 +17,4 @@
 //= require_tree .
 //= require materialize-sprockets
 //= require home
+//= require signup

@@ -1,179 +1,280 @@
-
 <!-- Single Page Sign Up -->
-
 
 <!-- Section 1 - User Details  -->
 
-
 <div class="row">
-    <form class="col s12 offset-m1 m10 offset-l2 l8 ">
-      <div class="line-divider" style='margin-top: 90px;'></div>
-      <div class="row">
-        <h5>Step 1:</h5>
-        <h4>Info</h4>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+    <form class="col s12 offset-m1 m10 offset-l2 l8 signup-form ">
+        <div class="signup-form-section-1">
+            <div class="line-divider" style='margin-top: 90px;'></div>
+            <div class="row">
+                <h5>Step 1:</h5>
+                <h4>Info</h4>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate">
+                    <label for="email" data-error="Not Valid" data-success="Valid">Email</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="input-field col s12 m6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate">
-          <label for="email" data-error="Not Valid" data-success="Valid">Email</label>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">vpn_key</i>
-            <input id="password" type="password" class="validate">
-            <label for="password">Password</label>
-          </div>
+
+        <div class="line-divider"></div>
+
+        <!-- Section 2 - User Strengths  -->
+        <div class="signup-form-section-2">
+            <div class="row">
+                <div class="signup-form-title">
+                  <h5>Step 2:</h5>
+                  <h4>Strengths</h4>
+                </div>
+
+
+            <div class="col s12">
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/javascript.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p class="">JavaScript</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/ruby.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p class="signup-cell">Ruby</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/rails.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p class="">Ruby on Rails</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12">
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/python.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>Python</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/jquery.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>jQuery</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/css.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>CSS</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12">
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/angular.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>Angular</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/git.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>Git</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/database.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>Databases</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12">
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/php.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>PHP</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/API.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>APIs</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 signup-coding-option">
+                    <img src="assets/node.png" class="signup-coding-image">
+                    <div class="signup-coding-option-inner">
+                        <p>Node</p>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
 
         <div class="line-divider"></div>
 
-<!-- Section 2 - User Interests  -->
+        <!-- Section 3 - User Interests  -->
+        <div class="signup-form-section-3">
+            <div class="row">
+                <div class="signup-form-title">
+                  <h5>Step 3:</h5>
+                  <h4>Interests</h4>
+                </div>
 
+                <div class="col s12">
 
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/javascript.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>JavaScript</p>
+                        </div>
+                    </div>
 
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/ruby.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>Ruby</p>
+                        </div>
+                    </div>
 
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/rails.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>Ruby on Rails</p>
+                        </div>
+                    </div>
 
+                </div>
+                <div class="col s12">
 
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/python.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>Python</p>
+                        </div>
+                    </div>
 
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/jquery.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>jQuery</p>
+                        </div>
+                    </div>
 
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/css.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>CSS</p>
+                        </div>
+                    </div>
 
-  <!-- Section 4 - Payment  -->
-  <div class="row">
-    <h5>Step 2:</h5>
-    <h4>Interests</h4>
-  </div>
+                </div>
+                <div class="col s12">
 
-  <div class="row">
-    <div class="col s12">
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/angular.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>Angular</p>
+                        </div>
+                    </div>
 
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/javascript.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input name="group1" type="radio" id="test1" />
-            <label for="test1">JavaScript</label>
-          </div>
-        </div>
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/git.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>Git</p>
+                        </div>
+                    </div>
 
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/ruby.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input name="group1" type="radio" id="test2" />
-            <label for="test2">Ruby</label>
-          </div>
-        </div>
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/database.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>Databases</p>
+                        </div>
+                    </div>
 
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/rails.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input class="with-gap" name="group1" type="radio" id="test3"  />
-            <label for="test3">Ruby on Rails</label>
-          </div>
-        </div>
+                </div>
+                <div class="col s12">
 
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/php.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/API.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>APIs</p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4 signup-coding-option">
+                        <img src="assets/node.png" class="signup-coding-image">
+                        <div class="signup-coding-option-inner">
+                            <p>Node</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section 5 - Submit  -->
+            <div></div>
+        </form>
     </div>
-    <div class="col s12">
 
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/python.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-              <input name="group1" type="radio" id="test4" />
-              <label for="test4">Python</label>
-          </div>
-        </div>
+    <script>
 
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/jquery.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input name="group1" type="radio" id="test5" />
-            <label for="test5">jQuery</label>
-          </div>
-        </div>
+        $(document).ready(function () {
+            var payload = {
+                strength: '',
+                seeking: ''
+            };
 
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/css.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input class="with-gap" name="group1" type="radio" id="test6"  />
-            <label for="test6">CSS</label>
-          </div>
-        </div>
-
-
-    </div>
-    <div class="col s12">
-
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/angular.png" class="signup-coding-image">
-            <div class="signup-coding-option-inner">
-              <input name="group1" type="radio" id="test7" />
-              <label for="test7">Angular</label>
-          </div>
-        </div>
-
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/git.png" class="signup-coding-image">
-            <div class="signup-coding-option-inner">
-              <input name="group1" type="radio" id="test8" />
-              <label for="test8">Git</label>
-          </div>
-        </div>
-
-
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/database.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input class="with-gap" name="group1" type="radio" id="test9"  />
-            <label for="test9">Databases</label>
-          </div>
-        </div>
-
-
-    </div>
-    <div class="col s12">
-
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/php.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input name="group1" type="radio" id="test10"/>
-            <label for="test10">PHP</label>
-          </div>
-        </div>
-
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/API.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input name="group1" type="radio" id="test11"/>
-            <label for="test11">APIs</label>
-          </div>
-        </div>
-
-        <div class="col s12 m4 signup-coding-option">
-          <img src="assets/node.png" class="signup-coding-image">
-          <div class="signup-coding-option-inner">
-            <input name="group1" type="radio" id="test12"/>
-            <label for="test12">Node</label>
-          </div>
-        </div>
-
-
-    </div>
-  </div>
-
-
-  <!-- Section 5 - Submit  -->
-  <div></div>
-</form>
-</div>
+            $(".signup-form").on('click', '.signup-coding-option', function () {
+                $('.signup-coding-option').removeClass("green");
+                $('.signup-coding-image').removeClass("animated rubberBand");
+                $(this).addClass("green");
+                $(this).closest("img").addClass("animated rubberBand");
+                payload.strength = $(this).closest("p").context.innerText.trim();
+                console.log(payload);
+            });
+        });
+    </script>
