@@ -1,3 +1,41 @@
+.signup-form{
+  display: block;
+}
+
+.signup-form-section-1,.signup-form-section-2{
+  display: block;
+}
+
+
+.signup-form-title{
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.signup-form-title > p{
+  text-align: center;
+}
+
+
+
+.lightgrey{
+  background-color: blue;
+  transition: .25s;
+
+}
+
+.green{
+  background-color: green;
+  transition: .25s;
+  color: white;
+}
+
+.signup-coding-container{
+  border: 1px black solid;
+  padding: 14px 8px;
+}
+
 
 h1, h2, h3, h4, h5, h6, p, label, input, a {
   font-family: 'Inconsolata';
@@ -6,19 +44,36 @@ h1, h2, h3, h4, h5, h6, p, label, input, a {
 
 .line-divider{
   width: 98%;
-  height:2px;
+  height:4px;
   background-color: black;
   color: black;
   margin: 20px auto;
   display: block;
 }
 
-.signup-coding-option{
-  background-color: lightgrey;
+.signup-coding-option1, .signup-coding-option2{
+  background-color: whitesmoke;
   height: 200px;
   position: relative;
   border: 2px white solid;
 
+  font-size: 14px;
+   transition: all 0.5s ease;
+
+
+}
+
+.signup-coding-option1:hover{
+  background-color: lightgreen;
+  color: white;
+  transform: scale(1.025);
+  z-index: 10000;
+}
+.signup-coding-option2:hover{
+  background-color: lightgreen;
+  color: white;
+  transform: scale(1.025);
+  z-index: 10000;
 }
 
 .signup-coding-option-inner{
@@ -27,7 +82,12 @@ h1, h2, h3, h4, h5, h6, p, label, input, a {
     padding: 5px;
     left: 0;
     width: 100%;
-    border-top: 1px red solid;
+    text-align: center;
+}
+.signup-coding-option-inner > p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .signup-coding-image{
@@ -37,4 +97,40 @@ h1, h2, h3, h4, h5, h6, p, label, input, a {
   margin-top: 18px;
   display: block;
 
+}
+
+
+
+.signup-form-submit:hover{
+  background: purple;
+  color: white;
+}
+
+.signup-form-submit-container{
+  height:200px;
+  background-color: black;
+  width: 100%;
+  position: relative;
+  display:block;
+  margin-bottom: 0;
+}
+
+.signup-form-submit{
+
+  border: 2px solid white;
+  font-size: 30px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: white;
+  transition: all 0.5s ease;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
