@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get '/' => 'home#index'
   get '/signup' => 'signup#signup'
+  get '/login/oauth2' => 'signup#oauth2'
+  get '/login/oatoken' => 'signup#oatoken'
+
   resources :events
 
 
