@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
   def notification(user, event)
     @user = user
     @event = event
-    @delivery_time = @event.time - 2.hours
+    @delivery_time = @event.start_at - 2.hours
     mail( to: @user.email,
     subject: "Upcoming event")
   end
