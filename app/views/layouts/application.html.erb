@@ -17,22 +17,19 @@
       <div class="nav-wrapper container">
         <!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
         <ul class="right hide-on-med-and-down">
-
-          <li><a href="/events">Event</a></li>
-          <li><a href="/signup">Sign up</a></li>
-          <li><a href="/login">Log in</a></li>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
-
+          <li><a href="#">Event</a></li>
           <% if !logged_in? %>
           <li><a href="#">Register event</a></li>
-          <li><a href="#">Log in</a></li>
+          <li><a href="/login">Log in</a></li>
+          <li><a href="/events">Event</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
           <% if logged_in? %>
-          <li><a href="#profile">Profile</a></li>
           <li><a href="#profile">Log out</a></li>
+            <li><a href="#profile">Profile</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <li><a href="index2.html">Confbuddy</a></li>
           <% end%>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
