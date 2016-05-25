@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/profile' => 'profile#profile'
 
   resources :events
-
+  resources :users
 
 
   # ================ api controllers return JSON=====================
