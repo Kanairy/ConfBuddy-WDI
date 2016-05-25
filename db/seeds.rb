@@ -57,7 +57,7 @@ Type.create(name:"Node");
 Type.create(name:"Angular");
 Type.create(name:"Git");
 Type.create(name:"Databases");
-Type.create(name:"Api"); 
+Type.create(name:"Api");
 Type.create(name:"Startup");
 
 

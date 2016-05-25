@@ -1,8 +1,9 @@
 module Api
   class UsersController < ApplicationController
-    
+
     def index
       @users = User.all
+      render json: @users.to_json, status: 201
     end
 
     def show
@@ -15,10 +16,10 @@ module Api
       user.first_name = params[:first_name]
       user.last_name = params[:last_name]
       user.email = params[:email]
+      user.password = params[:password]
       user.strength = params[:strength]
       user.seeking = params[:seeking]
       user.linkedin_url = params[:linkedin_url]
-      user.password = params[:password]
       if user.save
         render json: user.to_json, status: 201
       else
@@ -34,5 +35,6 @@ module Api
         render json: user.errors.to_json
       end
     end
+
   end
 end
