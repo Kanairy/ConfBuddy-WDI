@@ -61,58 +61,7 @@
     </div>
     <div class="parallax"><img src="https://spin.atomicobject.com/wp-content/uploads/programming-is-magic.jpg" alt="Unsplashed background img 2"></div>
 </div>
-
-<div class="row">
-    <div class="col s12 m4" id="card{{ id }}">
-        <div class="card events-card">
-            <div class="card-image events-card-image">
-                <img src="{{ eventImg }}">
-                <span class="card-title events-card-title">{{ eventName }}</span>
-            </div>
-            <div class="card-content events-card-presenter">
-                <p>{{ eventPresenter }}</p>
-            </div>
-            <div class="card-content events-card-time">
-                <p>{{ eventTime }}</p>
-            </div>
-            <div class="card-content events-card-description">
-                <p>{{ eventDescription }}</p>
-            </div>
-            <div class="card-content events-card-sponsor">
-                <p>{{ eventSponsor }}</p>
-            </div>
-            <div class="card-content events-card-stream">
-                <p>{{ eventStream }}</p>
-            </div>
-            <div class="card-action">
-                <a href="#">more info.</a>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-
-</div>
-
-<div class="index-events-container">
-
-<div class="index-events-card">
-<div class="index-events-card-img">
-<img>
-</div>
-<div class="index-events-card-text">
-<p></p>
-</div>
-
-</div>
-<div class="index-events-card"></div>
-<div class="index-events-card"></div>
-
-</div>
-
 <!--
-
   <div class="container" id="schedule">
     <div class="section story">
 
@@ -149,147 +98,101 @@
                   <div class="hackers events">
                   <div><b>4th of June // 16.00am</b></div>
                   <div>"Keeping that plane in the air - How to code safely in risky industries"</div>
-                  <div><b>Speaker:</b> Leanna Rierson</div>
+                  <div><b>Speaker:</b> Leanna Rierson</div> -->
+
+<div class="cards-test">
+    <div class="row row-test">
+        <script id="event-card-template" type="text/x-handlebars-template">
+
+            <div class="col s12 m4" id="card{{ id }}">
+                <div class="card events-card">
+                    <div class="card-image events-card-image">
+                        <img src="{{ eventImg }}">
+                        <span class="card-title events-card-title">{{ eventName }}</span>
+
+                        <div class="card-content events-card-presenter">
+                            <p>{{ eventPresenter }}</p>
+                        </div>
+                        <div class="card-content events-card-time">
+                            <p>{{ eventTime }}</p>
+                        </div>
+                        <div class="card-content events-card-description">
+                            <p>{{ eventDescription }}</p>
+                        </div>
+                        <div class="card-content events-card-sponsor">
+                            <p>{{ eventSponsor }}</p>
+                        </div>
+                        <div class="card-content events-card-stream">
+                            <p>{{ eventStream }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="modal{{ id }}">more info.</a>
+                        </div>
+
+                    </div>
                 </div>
-              </div>
 
-
-
-                      <div class="hustlerdetails">
-                          <div class="hustlers events">
-                          <div><b>4th of June // 9.00am</b></div>
-                          <div>"Uber: Why disruption changes the tech industry"</div>
-                          <div><b>Speaker:</b> Travis Calanik</div>
-                        </div>
-
-                          <div class="hustlers events">
-                          <div><b>4th of June // 10.30am</b></div>
-                          <div>"Why diversity matters in programming"</div>
-                          <div><b>Speaker:</b> Reshma Saujani</div>
-                        </div>
-
-                          <div class="hustlers events">
-                          <div><b>4th of June // 14.30am</b></div>
-                          <div>"What matters during the first weeks after launching a startup"</div>
-                          <div><b>Speaker:</b> Jake Schwartz</div>
-                        </div>
-                      </div>
-
-                      <div class="hipsterdetails">
-                          <div class="hipsters events">
-                          <div><b>4th of June // 9.30am</b></div>
-                          <div>"Why we should love CSS - and what's next"</div>
-                          <div><b>Speaker:</b> Hampton Catlin</div>
-                        </div>
-
-                          <div class="hipsters events">
-                          <div><b>4th of June // 11.30am</b></div>
-                          <div>"Why we need to think coding like children"</div>
-                          <div><b>Speaker:</b> Linda Liukas</div>
-                        </div>
-
-                          <div class="hipsters events">
-                          <div><b>4th of June // 14.30am</b></div>
-                          <div>"The challenge of millon devices - How to control your layout in one step"</div>
-                          <div><b>Speaker:</b> Jon Duckett</div>
-                        </div>
-
-                          <div class="hipsters events">
-                          <div><b>4th of June // 16.00am</b></div>
-                          <div>"Why virtual reality drives social change"</div>
-                          <div><b>Speaker:</b> John D. Carmack</div>
-                        </div>
-                      </div>
-
-
-          </div> -->
-
-<!-- Step 1 -->
-<div id="modal">
-<!-- Step 5 -->
-<div class="modal-content-home">
-<!-- Step 4 -->
-<span id="close-modal">x</span>
-<div class="modal-body">
-<div>
-    <p>
-        <b>4th of June // 16.00am</b>
-    </p>
-    <p>"Why virtual reality drives social change"</p>
-    <p>
-        <b>Speaker:</b>
-        John D. Carmack</p>
-    <p>"The CTO of Oculus gives a keynote on how virtual reality will drive social change in the future and how it will change our everyday lives all around the world."</p>
-    <p>
-        <button>Register event</button>
-    </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
+            </script>
+        </div>
+    </div>
 </div>
 
 <div class="parallax-container valign-wrapper">
-<div class="section no-pad-bot">
-<div class="container">
-<div class="row center">
-<!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
-</div>
-</div>
-</div>
-<div class="parallax"><img src="https://evolverefrigeration.com/wp-content/uploads/2015/08/vaccine-storage-and-internet-of-things.jpg" alt="Unsplashed background img 3"></div>
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img src="https://evolverefrigeration.com/wp-content/uploads/2015/08/vaccine-storage-and-internet-of-things.jpg" alt="Unsplashed background img 3"></div>
 </div>
 
 <footer class="page-footer indigo lighten-4">
-<div class="container">
-<div class="row">
+    <div class="container">
+        <div class="row">
 
-<h5 class="black-text">Company Bio</h5>
-<p class="black-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+            <h5 class="black-text">Company Bio</h5>
+            <p class="black-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
 
-</div>
-</div>
+        </div>
+    </div>
 
 </footer>
 
 <script>
 
-$(function () {
-    $(".element").typed({
-        strings: ["WDI CONFERENCE."], typeSpeed: 0
-        // loop: true
-    });
-});
-
-var hashTagActive = "";
-$(".scroll").click(function (event) {
-    if (hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
-        event.preventDefault();
-        //calculate destination place
-        var dest = 0;
-        if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
-            dest = $(document).height() - $(window).height();
-        } else {
-            dest = $(this.hash).offset().top;
-        }
-        //go to destination
-        $('html,body').animate({
-            scrollTop: dest
-        }, 2000, 'swing');
-        hashTagActive = this.hash;
-    }
-});
-(function ($) {
     $(function () {
+        $(".element").typed({
+            strings: ["WDI CONFERENCE."], typeSpeed: 0
+            // loop: true
+        });
+    });
 
-        $('.button-collapse').sideNav();
-        $('.parallax').parallax();
+    var hashTagActive = "";
+    $(".scroll").click(function (event) {
+        if (hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
+            event.preventDefault();
+            //calculate destination place
+            var dest = 0;
+            if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+                dest = $(document).height() - $(window).height();
+            } else {
+                dest = $(this.hash).offset().top;
+            }
+            //go to destination
+            $('html,body').animate({
+                scrollTop: dest
+            }, 2000, 'swing');
+            hashTagActive = this.hash;
+        }
+    });
+    (function ($) {
+        $(function () {
 
-    }); // end of document ready
-})(jQuery); // end of jQuery name space
+            $('.button-collapse').sideNav();
+            $('.parallax').parallax();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
 </script>
