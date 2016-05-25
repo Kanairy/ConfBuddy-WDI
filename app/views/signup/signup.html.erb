@@ -313,7 +313,9 @@
                     error: function(errorThrown){
                       console.log("error occured");
                     }
-                });
+                }).done(function(){
+                  $(location).attr("href", "/");
+                })
             });
 
             //

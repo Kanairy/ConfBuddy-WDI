@@ -17,28 +17,41 @@
       <div class="nav-wrapper container">
         <!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Event</a></li>
           <% if !logged_in? %>
-          <li><a href="#">Register event</a></li>
-          <li><a href="/login">Log in</a></li>
+          <li><a href="/signup">Register event</a></li>
+          <li><a href="#modal-login" class="modal-trigger">Log in</a></li>
           <li><a href="/events">Event</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
           <% if logged_in? %>
-          <li><a href="#profile">Log out</a></li>
-            <li><a href="#profile">Profile</a></li>
+          <li>form action="/sessions" method="post" class="logout-form">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <input type="hidden" value="delete" name="_method">
+              <button>Log Out</button>
+            </form></li>
+            <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <li><a href="index2.html">Confbuddy</a></li>
           <% end%>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Event</a></li>
-          <li><a href="#">Sign up</a></li>
-          <li><a href="#profile">Profile</a></li>
-          <li><a href="#">Log in</a></li>
-          <li><a href="#">Schedule</a></li>
-          <li><a href="#index2">Confbuddy</a></li>
+          <% if !logged_in? %>
+          <li><a href="/signup">Register event</a></li>
+          <li><a href="#modal-login" class="modal-trigger">Log in</a></li>
+          <li><a href="/events">Event</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
+          <% end %>
+          <% if logged_in? %>
+          <li>form action="/sessions" method="post" class="logout-form">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <input type="hidden" value="delete" name="_method">
+              <button>Log Out</button>
+            </form></li>
+            <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
+          <li><a href="index2.html">Confbuddy</a></li>
+          <% end%>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">Menu</i></a>
       </div>
@@ -46,5 +59,15 @@
 
 <%= yield %>
 
+ <!-- Modal Structure -->
+ <div id="modal-login" class="modal">
+   <div class="login-modal-content modal-content">
+     <input type="text" name="email" >
+     <input type="password" name="password">
+   </div>
+   <div class="modal-footer">
+     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
+   </div>
+ </div>
 </body>
 </html>
