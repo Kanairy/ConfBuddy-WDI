@@ -265,7 +265,8 @@
         $(document).ready(function () {
             var payload = {
                 strength: '',
-                seeking: ''
+                seeking: '',
+                
             };
 
             $(".signup-form").on('click', '.signup-coding-option1', function () {
@@ -290,18 +291,28 @@
 
                 payload.firstName = $('#first_name').val();
                 payload.lastName = $('#last_name').val();
+                payload.email = $("#email").val();
+                payload.password = $("#password").val();
+
 
                 $.ajax({
                     type: "POST",
-                    url: '/api/users',
+                    url: 'http://localhost:3000/api/users',
                     data: {
+                        first_name: payload.firstName,
+                        last_name: payload.lastName,
+                        email: payload.email,
+                        password: payload.password,
                         strength: payload.strength,
-                        seeking: payload.seeking,
-                        firstName: payload.firstName
-
+                        seeking: payload.seeking
                     },
-                    success: success,
-                    dataType: dataType
+                    dataType: "json",
+                    success: function(data){
+                        console.log("yayyyyy");
+                    },
+                    error: function(errorThrown){
+                      console.log("error occured");
+                    }
                 });
             });
 
