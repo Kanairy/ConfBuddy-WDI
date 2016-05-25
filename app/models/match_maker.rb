@@ -56,8 +56,11 @@ class MatchMaker
     end
   end  
 
-  def matchmaker()
+  def matchmaker(event)
+    users = event.users
+    users.each do
 
+    end
 
 
 
