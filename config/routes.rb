@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   get '/login/oatoken' => 'signup#oatoken'
 
 
-  get '/profile' => 'profile#profile'
-
-  get '/profile' => 'profile#profile'
-
   resources :events
   resources :users
 

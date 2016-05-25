@@ -309,8 +309,39 @@ button:hover {
 }
 
 .profile {
-  position: fixed;
+  margin: 0 auto;
+  margin-top: 150px;
   top: 20%;
   left: 20%;
-  border: 1px dashed black;
+  width: 650px;
+  height: 400px;
+  background-color: white;
+  font-family: 'Inconsolata';
+  border: 1px solid black;
+}
+
+.material-icons {
+  font-family: 'Inconsolata';
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.tabs .tab a {
+  color: black !important;
+}
+
+.indicator {
+  background-color: orange !important;
+}
+
+
+.profile-header {
+  position: fixed;
+  top: 15%;
+  left: 20%;
+  font-weight: bold;
+  font-family: 'Inconsolata';
 }
