@@ -1,0 +1,20 @@
+Welcome to confbuddy.com, <%= @user.first_name %>
+===============================================
+
+You have successfully signed up to confbuddy.com.
+
+You decide to be matched to a buddy for the day of the conference.
+You've been paired with <%= @buddy.first_name %> <%= @buddy.last_name %>
+for the event <%= @event.name %>. Go and check your buddy linkedin
+profile on  <%= @buddy.linkedin_url %>
+
+You are able to get a free meal at 357 Collins Street Food Court on the
+day of the conference with your buddy, so you will have the chance to talk
+and exchange opinions about different topics.
+
+Present this code to get your free meal:
+
+<%= image_tag attachments['qr.png'].url  %>
+
+
+Thanks for joining and have a great day!
