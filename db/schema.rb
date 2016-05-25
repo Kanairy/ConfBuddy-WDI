@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524063410) do
+ActiveRecord::Schema.define(version: 20160525050951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,15 @@ ActiveRecord::Schema.define(version: 20160524063410) do
     t.string   "strength"
     t.string   "seeking"
     t.string   "linkedin_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "linkedin_image_url"
+    t.string   "linkedin_id"
+    t.string   "linkedin_headline"
+    t.string   "linkedin_location"
+    t.string   "linkedin_industry"
+    t.string   "linkedin_positions"
+    t.string   "linkedin_specialities"
   end
 
 end
