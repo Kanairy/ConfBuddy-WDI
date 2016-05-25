@@ -8,7 +8,7 @@ class SignupController < ApplicationController
     api = LinkedIn::API.new(access_token)
     # https://developer.linkedin.com/docs/fields/basic-profile
     # can get as many of these fields as we want, simply add elements to the array below:
-    original_picture = api.profile(fields: ["picture-urls::(original)"])
+    original_picture = api.profile(fields: ["picture-urls::(original)", "first-name", "location"])
     #TODO: redirect to profile page or some other logical place
     render json: original_picture.to_json, status: 201
   end
