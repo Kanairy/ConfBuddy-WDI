@@ -11,4 +11,8 @@ module ApplicationHelper
       true
       end
 
+  def formatted_date(date)
+    date.strftime('%d %b %Y  //  %l:%M %P')
+  end
+
 end

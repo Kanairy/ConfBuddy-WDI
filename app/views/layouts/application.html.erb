@@ -4,7 +4,8 @@
   <title>Group</title>
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -19,14 +20,16 @@
           <li><a href="#">Event</a></li>
           <% if !logged_in? %>
           <li><a href="#">Register event</a></li>
-          <li><a href="#">Log in</a></li>
+          <li><a href="/login">Log in</a></li>
+          <li><a href="/events">Event</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
           <% if logged_in? %>
-          <li><a href="#profile">Profile</a></li>
           <li><a href="#profile">Log out</a></li>
+            <li><a href="#profile">Profile</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <li><a href="index2.html">Confbuddy</a></li>
           <% end%>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">

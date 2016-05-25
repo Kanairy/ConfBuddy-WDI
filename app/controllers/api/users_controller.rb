@@ -35,5 +35,6 @@ module Api
         render json: user.errors.to_json
       end
     end
+
   end
 end

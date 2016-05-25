@@ -266,7 +266,7 @@
             var payload = {
                 strength: '',
                 seeking: '',
-                
+
             };
 
             $(".signup-form").on('click', '.signup-coding-option1', function () {
@@ -297,7 +297,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: 'http://localhost:3000/api/users',
+                    url: '/api/users',
                     data: {
                         first_name: payload.firstName,
                         last_name: payload.lastName,
