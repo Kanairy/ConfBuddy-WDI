@@ -17,6 +17,5 @@ Rails.application.routes.draw do
       resources :events
       resources :types
       resources :users
-
     end
 end
