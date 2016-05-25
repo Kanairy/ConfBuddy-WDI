@@ -17,15 +17,22 @@
         <!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
         <ul class="right hide-on-med-and-down">
           <li><a href="#">Event</a></li>
-          <li><a href="#">Sign up</a></li>
+          <% if !logged_in? %>
+          <li><a href="#">Register event</a></li>
           <li><a href="#">Log in</a></li>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
+          <% end %>
+          <% if logged_in? %>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#profile">Log out</a></li>
           <li><a href="index2.html">Confbuddy</a></li>
+          <% end%>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#">Event</a></li>
           <li><a href="#">Sign up</a></li>
+          <li><a href="#profile">Profile</a></li>
           <li><a href="#">Log in</a></li>
           <li><a href="#">Schedule</a></li>
           <li><a href="#index2">Confbuddy</a></li>
