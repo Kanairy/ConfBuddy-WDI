@@ -21,7 +21,6 @@ class SignupController < ApplicationController
     end
     @@oauth = LinkedIn::OAuth2.new
     url = @@oauth.auth_code_url
-    render json: url.to_json, status: 201
-    # redirect_to url
+    redirect_to url
   end
 end
