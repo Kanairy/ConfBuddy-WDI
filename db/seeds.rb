@@ -66,23 +66,26 @@ Type.create(name:"Startup");
 # User id: nil, first_name: nil, last_name: nil, email: nil, password_digest: nil, buddy: nil, strength: nil, seeking: nil, linkedin_url: nil, created_at: nil, updated_at: nil>
 
 
-har = User.create(first_name:"Harry", strength:"Javascript", seeking:"Css", password: "tomaatti");
-ali = User.create(first_name:"Alimain", strength:"Css", seeking:"Angular", password: "tomaatti");
-kat = User.create(first_name:"Katy", strength:"Css", seeking:"Ruby", password: "tomaatti");
-pau = User.create(first_name:"Pauliina", strength:"Css", seeking:"Javascript", password: "tomaatti");
-wol = User.create(first_name:"Wolf", strength:"Ruby", seeking:"Css", password: "tomaatti");
+har = User.create(first_name:"Harry", strength:"Javascript", seeking:"Css", password: "tomaatti", email: "ha@ga.co");
+ali = User.create(first_name:"Alimain", strength:"Css", seeking:"Javascript", password: "tomaatti", email: "am@ga.co");
+kat = User.create(first_name:"Katy", strength:"Css", seeking:"Ruby", password: "tomaatti", email: "kd@ga.co");
+pau = User.create(first_name:"Pauliina", strength:"Css", seeking:"Javascript", password: "tomaatti", email: "ps@ga.co");
+wol = User.create(first_name:"Wolf", strength:"Ruby", seeking:"Css", password: "tomaatti", email: "nw@ga.co");
 
 jsEvent.users << har
-
 jsEvent.users << ali
-
 jsEvent.users << kat
-
 jsEvent.users << pau
-
 jsEvent.users << wol
 
-Match.create(user_one_id:"1", user_two_id:"5", event_id:"1")
+cssEvent.users << har
+cssEvent.users << ali
+cssEvent.users << kat
+cssEvent.users << pau
+cssEvent.users << wol
+
+
+# Match.create( :"1", user_two_id:"5", event_id:"1")
 
 # t.string   "name"
 # t.integer  "type"
@@ -93,3 +96,10 @@ Match.create(user_one_id:"1", user_two_id:"5", event_id:"1")
 # t.datetime "created_at",  null: false
 # t.datetime "updated_at",  null: false
 # t.string   "stream"
+#   EVENT      MATCH 
+#  JSS event   Wolf
+#    current_user.get_all_buddies
+# 
+# 
+# 
+

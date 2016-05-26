@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     # if_this_is_a_true_value ? then_the_result_is_this
     result << Match.where(user_one_id: "#{self.id}")
     result << Match.where(user_two_id: "#{self.id}")
+    result = result.flatten
     return result
   end
 
@@ -23,3 +24,8 @@ class User < ActiveRecord::Base
     end
   end
 end
+
+
+# [[#<Match:0x007fa1b6d63260>,
+#   #<Match:0x007fa1b6d63008 id: 3, user_one_id: 1, user_two_id: 2, event_id: 8, compatibility: "perfect">],
+#  []]
