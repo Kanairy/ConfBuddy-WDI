@@ -61,14 +61,28 @@ Type.create(name:"Api");
 Type.create(name:"Startup");
 
 
+
+
 # User id: nil, first_name: nil, last_name: nil, email: nil, password_digest: nil, buddy: nil, strength: nil, seeking: nil, linkedin_url: nil, created_at: nil, updated_at: nil>
 
 
-User.create(first_name:"Harry", strength:"Javascript", seeking:"Css", password: "tomaatti");
-User.create(first_name:"Alimain", strength:"Css", seeking:"Angular", password: "tomaatti");
-User.create(first_name:"Katy", strength:"Css", seeking:"Ruby", password: "tomaatti");
-User.create(first_name:"Pauliina", strength:"Css", seeking:"Angular", password: "tomaatti");
-User.create(first_name:"Wolf", strength:"Ruby", seeking:"Css", password: "tomaatti");
+har = User.create(first_name:"Harry", strength:"Javascript", seeking:"Css", password: "tomaatti");
+ali = User.create(first_name:"Alimain", strength:"Css", seeking:"Angular", password: "tomaatti");
+kat = User.create(first_name:"Katy", strength:"Css", seeking:"Ruby", password: "tomaatti");
+pau = User.create(first_name:"Pauliina", strength:"Css", seeking:"Javascript", password: "tomaatti");
+wol = User.create(first_name:"Wolf", strength:"Ruby", seeking:"Css", password: "tomaatti");
+
+jsEvent.users << har
+
+jsEvent.users << ali
+
+jsEvent.users << kat
+
+jsEvent.users << pau
+
+jsEvent.users << wol
+
+Match.create(user_one_id:"1", user_two_id:"5", event_id:"1")
 
 # t.string   "name"
 # t.integer  "type"

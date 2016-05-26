@@ -104,7 +104,7 @@
     <div class="row row-test">
         <script id="event-card-template" type="text/x-handlebars-template">
 
-            <div class="col s12 m4" id="card{{ id }}">
+            <div class="col s12 m6 l4" id="card{{ id }}">
                 <div class="card events-card">
                     <div class="card-image events-card-image">
                         <img src="{{ eventImg }}">
@@ -126,9 +126,55 @@
                             <p>{{ eventStream }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="modal{{ id }}">more info.</a>
+                            <a href="#modal{{ id }}" class="modal-trigger">more info.</a>
                         </div>
 
+                    </div>
+                </div>
+
+                <div id="modal{{id}}" class="modal">
+                    <div class="modal-content modal-content-timetable">
+                        <h4 class="modal-content-title">{{ eventName }}</h4>
+                        <div class="line-divider"></div>
+
+                        <div class="modal-content-chips">
+                            <div class="chip">
+                                Javascript
+                            </div>
+                            <div class="chip">
+                                Lecture
+                            </div>
+                            <div class="chip">
+                                Hacker
+                            </div>
+                        </div>
+
+
+                            <div class="col m6 s12">
+                                <p class="modal-content-span">Presenter:</p>
+                                <h5 class="modal-content-presenter">{{ eventPresenter }}</h5>
+                                <div class="modal-content-presenter-img-container">
+                                    <img class="modal-content-presenter-img" src="http://codewinds.com/assets/people/guy-bedford-jsconf-2014.jpg">
+                                </div>
+
+                            </div>
+
+                            <div class="col m16 s12">
+                                <p class="modal-content-span">Description:</p>
+                                <p class="modal-content-description">{{ eventDescription }}</p>
+                                <p class="modal-content-span">Time:</p>
+                                <p class="modal-content-time">{{ eventTime }}</p>
+                                <p class="modal-content-span">Sponsor:</p>
+                                <p class="modal-content-sponsor">{{ eventSponsor }}</p>
+                                <p class="modal-content-span">Stream:</p>
+                                <p class="modal-content-stream">{{ eventStream }}</p>
+
+                            </div>
+
+
+                        <div class="modal-footer">
+                            <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
+                        </div>
                     </div>
                 </div>
 
@@ -168,6 +214,8 @@
             // loop: true
         });
     });
+
+    $('.modal-trigger').leanModal();
 
     var hashTagActive = "";
     $(".scroll").click(function (event) {
