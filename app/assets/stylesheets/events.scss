@@ -1,3 +1,58 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.events-card{
+  cursor: pointer;
+}
+
+.card .card-content {
+    padding-bottom: 0;
+}
+.events-card-icons {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+.events-card-presenter {
+    color: lightgrey;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+
+}
+.events-card-time-inner {
+    display: inline-block;
+    position: absolute;
+    left: 30px;
+}
+.events-card-time {
+    position: absolute;
+    width: 100%;
+    bottom: 35px;
+    left: 15px;
+    color: grey;
+}
+.events-card-image {
+    height: 400px;
+}
+.events-card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border: 1px grey solid;
+    box-sizing: border-box;
+    display: block;
+}
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.fill-img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+.events-card-title {}
