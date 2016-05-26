@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     user.seeking = params[:seeking]
     user.linkedin_url = params[:linkedin_url]
     if user.save
-      session[:user_id] = user.id
       redirect_to "/"
     end
   end

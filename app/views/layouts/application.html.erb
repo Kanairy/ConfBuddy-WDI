@@ -42,13 +42,14 @@
           <li><a href="/events">Event</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
+
           <% if logged_in? %>
-          <li>form action="/sessions" method="post" class="logout-form">
+          <li><form action="/sessions" method="post" class="logout-form">
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
               <input type="hidden" value="delete" name="_method">
               <button>Log Out</button>
             </form></li>
-            <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
+            <li><a href="/users/<%= sessions[:user_id] %>">Profile</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <li><a href="index2.html">Confbuddy</a></li>
           <% end%>
@@ -61,13 +62,16 @@
 
  <!-- Modal Structure -->
  <div id="modal-login" class="modal">
-   <div class="login-modal-content modal-content">
-     <input type="text" name="email" >
-     <input type="password" name="password">
-   </div>
-   <div class="modal-footer">
-     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
-   </div>
+    <form class="login-modal-content modal-content" action="/sessions" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="text" name="email" placeholder="Email Address">
+      <input type="password" name="password" placeholder="Password">
+      <!-- <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
+      </div> -->
+      <button class=" modal-action modal-close waves-effect waves-green btn-flat">Log In</button>
+    </form>
+
  </div>
 </body>
 </html>
