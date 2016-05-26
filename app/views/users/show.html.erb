@@ -17,7 +17,9 @@
       <ul class="col s6"><b>Your email:</b> <%= @user.email %></ul>
       <ul class="col s6"><b>Your strengths:</b> <%= @user.strength %></ul>
       <ul class="col s6"><b>You are seeking:</b> <%= @user.seeking %></ul>
+    <% if !current_user.linkedin_image_url %>
       <ul class="col s6"><a href="/login/oauth2"><b>Link to your Linkedin</b> </a></ul>
+    <% end %>
       </div>
   </div>
   <div id="test2" class="col s12">Here is your timetable</div>
