@@ -3,7 +3,7 @@
   function showCards() {
 
     $.ajax({
-      url: 'api/events'
+      url: "http://localhost:3000/api/events"
     }).done(function(events){
 
       $.each(events, function(index, event){
@@ -31,4 +31,4 @@
 
       });
     });
-  };
+  }
