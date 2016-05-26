@@ -1,31 +1,4 @@
 <div class="profile">
-<<<<<<< HEAD
-<div class="row">
-  <div class="col s12 profiletable">
-    <ul class="tabs">
-      <li class="tab col s3"><a href="#test1" onclick="Materialize.showStaggeredList('#staggered-test')">Profile</a></li>
-      <li class="tab col s3"><a href="#test2">Timetable</a></li>
-      <li class="tab col s3"><a href="#test3">Find matches</a></li>
-      <li class="tab col s3"><a href="#test4">Buddy meetings</a></li>
-    </ul>
-  </div>
-  <div id="test1" class="col s12">
-      <div class="row">
-      <img class="avatar col s6" src="<%= @user.linkedin_image_url %>" alt="" style="width: 240px; padding: 15px">
-      <ul class="col s6 name">Hello <%= @user.first_name %> <%= @user.last_name %>!</ul>
-      <ul class="col s6"><b>Your email:</b> <%= @user.email %></ul>
-      <ul class="col s6"><b>Your strengths:</b> <%= @user.strength %></ul>
-      <ul class="col s6"><b>You are seeking:</b> <%= @user.seeking %></ul>
-    <% if !current_user.linkedin_image_url %>
-      <ul class="col s6"><a href="/login/oauth2"><b>Link to your Linkedin</b> </a></ul>
-    <% end %>
-      </div>
-  </div>
-  <div id="test2" class="col s12">Here is your timetable</div>
-  <div id="test3" class="col s12">Here are your matches</div>
-  <div id="test4" class="col s12">Here are your arranged buddy meetings</div>
-</div>
-
     <div class="row">
         <div class="col s12 profiletable">
             <ul class="tabs">
@@ -64,7 +37,7 @@
                     <p><img src="/<%=event.image%>" style="width: 200px"></p>
                 </div>
                 <div>
-                    <% current_user.get_buddy(event.id) %>
+                    <% if current_user.get_buddy(event.id) %>
                     <% buddy = current_user.get_buddy(event.id) %>
                     <em>Your buddy for the event:</em>
                     <%= buddy.first_name %>
@@ -77,7 +50,6 @@
         </div>
 
     </div>
-
 </div>
 
 <script>
