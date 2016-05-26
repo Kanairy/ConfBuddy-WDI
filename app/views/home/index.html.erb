@@ -104,7 +104,7 @@
 
 
     <div class="cards-test">
-        <div class="row row-test">
+        <div class="row row-test" id="schedule">
 
             <script id="event-card-template" type="text/x-handlebars-template">
 
@@ -150,7 +150,7 @@
                         </div>
                     </div>
 
-                    <div id="modal{{id}}" class="modal">
+                    <div class="modal">
                         <div class="modal-content modal-content-timetable">
 
                             <img class="col s12 m6" src="{{ eventImg }}">
@@ -274,6 +274,7 @@
             hashTagActive = this.hash;
         }
     });
+
     (function ($) {
         $(function () {
 

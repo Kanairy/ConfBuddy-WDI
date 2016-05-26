@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Group</title>
+  <title>WDI Conference 2016</title>
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta charset="utf-8">
@@ -18,11 +18,10 @@
         <!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
         <ul class="right hide-on-med-and-down">
           <li><a href="/">Home</a></li>
--          <li><a href="#">About</a></li>
           <% if !logged_in? %>
           <li><a href="/signup">Register event</a></li>
           <li><a href="#modal-login" class="modal-trigger">Log in</a></li>
-          <li><a href="/events">Event</a></li>
+          <li><a href="#schedule">Event</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
           <% if logged_in? %>
@@ -34,7 +33,7 @@
               </form>
             </li>
             <li><a href="/users/<%= current_user.id %>">Profile</a></li>
-            <li><a href="/events">Event</a></li>
+            <li><a href="#schedule">Event</a></li>
           <% end%>
         </ul>
 
@@ -78,6 +77,9 @@
 
  <script>
  showCards();
+
+
+
  </script>
 </body>
 </html>
