@@ -3,9 +3,7 @@
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
 every 10.minutes do
-  runner "MyModel.some_process"
   rake "notify:mail_users"
-  command "/usr/bin/my_great_command"
 end
 
 # Example:
