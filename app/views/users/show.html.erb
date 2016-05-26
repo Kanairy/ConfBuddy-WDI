@@ -34,7 +34,7 @@
                 <% current_user.events.each do |event| %>
                 <div>
                     <b><%= event.name %></b>
-                    <p><img src="/<%=event.image%>" style="width: 200px"></p>
+                    <p><img src="/<%= event.image%>" style="width: 200px"></p>
                 </div>
                 <div>
                     <% buddy = current_user.get_buddy(event.id) %>
