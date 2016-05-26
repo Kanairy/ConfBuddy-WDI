@@ -325,8 +325,22 @@ button:hover {
   border: 1px solid black;
 }
 
+.card-image.events-card-image {
+
+  margin: 10px !important;
+}
+
+.card.events-card {
+  padding-top: 5px;
+  margin: 20px;
+}
+
 .material-icons {
   font-family: 'Inconsolata';
+}
+
+.userevents {
+  margin-top: 10px;
 }
 
 .name {
@@ -346,6 +360,7 @@ button:hover {
 .indicator {
   background-color: #A164C2 !important;
 }
+
 
 
 .profile-header {

@@ -28,12 +28,20 @@
           <% end %>
             </div>
         </div>
-        <div id="test2" class="col s12">Here are your arranged buddy meetings</div>
+        <div id="test2" class="col s12">
+            <div class="userevents">
+          
+            <% current_user.events.each do |event| %>
+            <b><%= event.name %></b>
+            <p><img src="/<%= event.image%>" style="width: 200px"></p>
+            <% end %>
+            </div>
+        </div>
         <div id="test3" class="col s12">
             <div class="matchymatch">
                 <% current_user.events.each do |event| %>
                 <div>
-                    <b><%= event.name %></b>
+                    <p><b><%= event.name %></b></p>
                     <p><img src="/<%= event.image%>" style="width: 200px"></p>
                 </div>
                 <div>
