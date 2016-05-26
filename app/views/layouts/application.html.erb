@@ -17,25 +17,24 @@
       <div class="nav-wrapper container">
         <!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
         <ul class="right hide-on-med-and-down">
-
           <li><a href="/">Home</a></li>
-          <li><a href="#">About</a></li>
-
+-          <li><a href="#">About</a></li>
           <% if !logged_in? %>
           <li><a href="/signup">Register event</a></li>
           <li><a href="#modal-login" class="modal-trigger">Log in</a></li>
           <li><a href="/events">Event</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
           <% if logged_in? %>
             <li>
               <form action="/sessions" method="post" id="my_form">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <input type="hidden" value="delete" name="_method">
-                <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">Log Out</a>
+                 <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">Log Out</a>
               </form>
             </li>
             <li><a href="/users/<%= current_user.id %>">Profile</a></li>
-            <li><a href="/events">Event</a></li>
+-            <li><a href="/events">Event</a></li>
           <% end%>
         </ul>
 
@@ -44,6 +43,7 @@
           <li><a href="/signup">Register event</a></li>
           <li><a href="#modal-login" class="modal-trigger">Log in</a></li>
           <li><a href="/events">Event</a></li>
+          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
 
           <% if logged_in? %>
@@ -56,7 +56,7 @@
           </li>
             <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
             <li><a href="/events">Event</a></li>
-          <li><a href="/">Confbuddy</a></li>
+            <li><a href="/">Confbuddy</a></li>
           <% end%>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">Menu</i></a>
@@ -78,7 +78,8 @@
     </form>
 
  </div>
- <script id="events">
+
+ <script>
  showCards();
  </script>
 </body>

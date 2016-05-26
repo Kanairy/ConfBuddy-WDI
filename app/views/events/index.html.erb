@@ -1,9 +1,6 @@
 
 
 
-
-
-
 <div class="row events-tabs-container">
     <div class="col s12">
         <ul class="tabs">
@@ -41,7 +38,7 @@
                               </div>
                               <div class="card-content events-card-time">
 
-                                  <i class="material-icons events-card-icons">schedule</i>
+                                  <!-- <i class="material-icons events-card-icons">schedule</i> -->
                                   <p class="events-card-time-inner">{{ eventTime }}</p>
 
                               </div>
@@ -104,16 +101,6 @@
           </div>
       </div>
 
-
-
-
-
-
-
-
-
-
-
     </div>
 
     <div id="timetable-tab" class="col s12">
@@ -122,7 +109,7 @@
             <div class="timetable"></div>
 
             <!-- Modal Structure -->
-            <div id="modal1" class="modal">
+            <div id="modalA" class="modal">
                 <div class="modal-content modal-content-timetable">
                     <h3 class="modal-content-title">Javascript - Understanding the weird parts</h3>
                     <div class="line-divider"></div>
@@ -167,15 +154,7 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <!-- <div id="test2" class="col s12">Day 2</div>
-    <div id="test3" class="col s12">Day 3</div>
-    <div id="test4" class="col s12">Day 4</div>
-    <div id="test5" class="col s12">Day 5</div> -->
-=======
 
-
->>>>>>> 048eccc8ce3a45cae82abc1dc3654e9e6ce6a312
 </div>
 
 
@@ -200,7 +179,7 @@
         'Lecture Hall 1'
     ]);
 
-    timetable.addEvent('Javascript Understanding the weird parts', 'Lecture Hall 1', new Date(2016, 06, 04, 9, 30), new Date(2016, 06, 04, 12, 30), '#modal1');
+    timetable.addEvent('Javascript Understanding the weird parts', 'Lecture Hall 1', new Date(2016, 06, 04, 9, 30), new Date(2016, 06, 04, 12, 30), '#modalA');
     // timetable.addEvent('Why I rather communicate with computers than humans', 'Madrid', new Date(2015,7,17,12), new Date(2015,7,17,13), '#'); timetable.addEvent('Zumbu', 'Madrid', new Date(2015,7,17,13,30), new Date(2015,7,17,15), '#');
     // timetable.addEvent('Lasergaming', 'London', new Date(2015,7,17,17,45), new Date(2015,7,17,19,30), '#'); timetable.addEvent('All-you-can-eat grill', 'New York', new Date(2015,7,17,21), new Date(2015,7,18,1,30), '#'); timetable.addEvent('Hackathon',
     // 'Tokyo', new Date(2015,7,17,11,30), new Date(2015,7,17,20)); // url is optional and is not used for this event timetable.addEvent('Tokyo Hackathon Livestream', 'Los Angeles', new Date(2015,7,17,12,30), new Date(2015,7,17,16,15)); // url is
