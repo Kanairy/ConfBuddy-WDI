@@ -11,7 +11,7 @@
   </div>
   <div id="test1" class="col s12">
       <div class="row">
-      <img class="avatar col s6" src="http://media.vogue.com/r/c_1,h_4000,w_3280/2015/02/20/05-emma-watson-prince-harry.jpg" alt="" style="width: 200px; padding: 10px">
+      <img class="avatar col s6" src="http://media.vogue.com/r/c_1,h_4000,w_3280/2015/02/20/05-emma-watson-prince-harry.jpg" alt="" style="width: 240px; padding: 15px">
       <ul class="col s6 name">Hello <%= @user.first_name %> <%= @user.last_name %>!</ul>
       <ul class="col s6"><b>Your email:</b> <%= @user.email %></ul>
       <ul class="col s6"><b>Your strengths:</b> <%= @user.strength %></ul>
@@ -29,7 +29,7 @@
 $(document).ready(function(){
     $('ul.tabs').tabs();
   });
-      
+
 </script>
 
 <!-- user.first_name = params[:first_name]
