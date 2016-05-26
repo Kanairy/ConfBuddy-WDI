@@ -22,14 +22,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to "/"
-    else
-      redirect_to '/signup'
-    end
-  end
 
 end
