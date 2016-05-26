@@ -2,10 +2,17 @@
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
-every 10.minutes do
+every 1.minutes do
   rake "notify:mail_users"
 end
 
+every 1.minutes do
+  rake "match:mail_users"
+end
+
+every 1.minutes do
+  rake "match_maker:match_maker"
+end
 # Example:
 #
 # set :output, "/path/to/my/cron_log.log"

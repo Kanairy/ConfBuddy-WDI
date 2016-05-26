@@ -103,52 +103,40 @@
                   <div><b>Speaker:</b> Leanna Rierson</div> -->
 
 
-    <div class="cards-test">
-        <div class="row row-test" id="schedule">
-
-            <script id="event-card-template" type="text/x-handlebars-template">
-
-                <div class="col s12 m6 l4 modal-trigger" id="card{{ id }}" data-target="modal{{id}}">
-                    <div class="card events-card">
-
-                        <div class="card-image events-card-image">
-                            <div class="events-card-image-container fill z-depth-1">
-                                <img class="events-card-image-inner fill-img" style="filter: grayscale(1)" src="{{ eventImg }}">
-                            </div>
+                  <div id="events-tab" class="col s12">
+                      <div class="cards-test">
+                          <div class="row row-test">
+                              <script id="event-card-template" type="text/x-handlebars-template">
 
 
+                                  <div class="signup-contents col s12 m6 l4">
 
-                            <div class="card-content">
-                                <h5 class="events-card-title">{{ eventName }}</h5>
-                            </div>
-                            <!-- <div class="chip">
-                            {{ eventStream }}
-                        </div> -->
+                                      <div class=" modal-trigger" id="card{{ id }}" data-target="modal{{id}}">
+                                          <div class="card events-card">
 
-                            <div class="card-content events-card-presenter">
-                                <p>{{ eventPresenter }}</p>
-                            </div>
-                            <div class="card-content events-card-time">
+                                              <div class="card-image events-card-image">
+                                                  <div class="events-card-image-container fill z-depth-1">
+                                                      <img class="events-card-image-inner fill-img" src="{{ eventImg }}">
+                                                  </div>
 
-                                <p class="events-card-time-inner">{{ eventTime }}</p>
+                                                  <div class="card-content">
+                                                      <h5 class="events-card-title">{{ eventName }}</h5>
+                                                  </div>
 
-                            </div>
-                            <!-- <div class="card-content events-card-description">
-                            <p>{{ eventDescription }}</p>
-                        </div> -->
-                            <!-- <div class="card-content events-card-sponsor">
-                            <p>{{ eventSponsor }}</p>
-                        </div> -->
-                            <!-- <div class="card-content events-card-stream">
-                            <p>{{ eventStream }}</p>
-                        </div> -->
+                                                  <div class="card-content events-card-presenter">
+                                                      <p>{{ eventPresenter }}</p>
+                                                  </div>
+                                                  <div class="card-content events-card-time">
 
-                            <!-- <div class="card-action">
-                            <a href="#modal{{ id }}" class="modal-trigger">more info.</a>
-                        </div> -->
+                                                      <i class="material-icons events-card-icons">schedule</i>
 
-                        </div>
-                    </div>
+                                                      <p class="events-card-time-inner">{{ eventTime }}</p>
+
+                                                  </div>
+
+                                              </div>
+                                          </div>
+
 
                     <div class="modal">
                         <div class="modal-content modal-content-timetable">
@@ -197,11 +185,41 @@
                         </div>
                     </div>
 
-                </script>
 
-            </div>
-        </div>
-    </div>
+                                                  <div class="col s12">
+                                                      <p class="modal-content-span">Presenter:</p>
+                                                      <h5 class="modal-content-presenter">{{ eventPresenter }}</h5>
+                                                      <div class="row"><p class="modal-content-span col s6">Time: <span class="modal-content-span-inner">{{ eventTime }}</span></p></div>
+                                                      <div class="row"><p class="modal-content-span col s6">Sponsor: <span class="modal-content-span-inner">{{ eventSponsor }}</span></p></div>
+
+                                                      <!-- <div class="modal-content-presenter-img-container col s12 m4 offset-m4">
+                                                          <img class="modal-content-presenter-img col s12 m4 offset-m4" src="http://codewinds.com/assets/people/guy-bedford-jsconf-2014.jpg">
+                                                      </div> -->
+
+                                                  </div>
+
+                                                  <div class="col s12">
+                                                      <p class="modal-content-span">Description:</p>
+                                                      <p class="modal-content-description">{{ eventDescription }}</p>
+
+
+                                                      <!-- <p class="modal-content-span">Stream:</p> -->
+                                                      <!-- <p class="modal-content-stream">{{ eventStream }}</p> -->
+
+                                                  </div>
+
+                                                  <div class="modal-footer">
+                                                      <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                  </script>
+
+                              </div>
+                          </div>
+                      </div>
 
     <div class="parallax-container valign-wrapper">
         <div class="section no-pad-bot">
@@ -238,23 +256,6 @@
     });
 
     $('.modal-trigger').leanModal();
-    $("#card1").clone().append("#card1-owl");
-
-    var owl = $('.owl-carousel');
-    owl.owlCarousel({
-        items: 4,
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true
-    });
-    $('.play').on('click', function () {
-        owl.trigger('play.owl.autoplay', [1000])
-    })
-    $('.stop').on('click', function () {
-        owl.trigger('stop.owl.autoplay')
-    })
 
     var hashTagActive = "";
     $(".scroll").click(function (event) {
@@ -278,9 +279,10 @@
     (function ($) {
         $(function () {
 
-            $('.button-collapse').sideNav();
+            Error: source does not appear to be markup.
             $('.parallax').parallax();
 
         }); // end of document ready
     })(jQuery); // end of jQuery name space
+
 </script>
