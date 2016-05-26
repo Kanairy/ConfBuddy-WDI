@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
   # has_many :matches, :foreign_key => "user_two_id"
 
   def get_all_buddies()
-    Match.where(user_one_id: self.id) << Match.where(user_two_id: self.id)
+    result = []
+    # if_this_is_a_true_value ? then_the_result_is_this
+    result << Match.where(user_one_id: "#{self.id}")
+    result << Match.where(user_two_id: "#{self.id}")
+    result = result.flatten
+    return result
   end
 
   def get_buddy(event_id)
@@ -19,3 +24,8 @@ class User < ActiveRecord::Base
     end
   end
 end
+
+
+# [[#<Match:0x007fa1b6d63260>,
+#   #<Match:0x007fa1b6d63008 id: 3, user_one_id: 1, user_two_id: 2, event_id: 8, compatibility: "perfect">],
+#  []]

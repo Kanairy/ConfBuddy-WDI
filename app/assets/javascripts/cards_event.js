@@ -1,4 +1,4 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
   function showCards() {
 
@@ -32,5 +32,3 @@ $(document).ready(function(){
       });
     });
   };
-  showCards();
-});

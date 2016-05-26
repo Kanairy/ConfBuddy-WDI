@@ -17,20 +17,16 @@ class SignupController < ApplicationController
       "public-profile-url"
       ])
 
-    # TODO: get the userid from the currently logged in user
-    # user = User.find(params[:id])
+    user = current_user
+    user.linkedin_id = api_response.id
+    user.linkedin_image_url = api_response.picture_urls.all[0]
+    user.linkedin_headline = api_response.headline
+    user.linkedin_specialities = api_response.public_profile_url
+    user.linkedin_location = api_response.location.name
+    user.linkedin_industry = api_response.industry
 
-    # user.linkedin_id = api_response.id
-    # user.linkedin_image_url = api_response.picture_urls.all[0]
-    # user.linkedin_headline = api_response.picture_urls.headline
-
-    # putting the linkedin url into the specialities for now...
-
-    # user.linkedin_specialities = api_response.public_profile_url
-
-    # TODO: Redirect to the profile page
-    
-    redirect_to '/'
+    user.save
+    redirect_to "/users/#{current_user.id}"
   end
 
   def oauth2

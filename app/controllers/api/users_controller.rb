@@ -8,6 +8,7 @@ module Api
 
     def show
       user = User.find(params[:id])
+
       render json: user.to_json, status: 200
     end
 
@@ -21,6 +22,7 @@ module Api
       user.seeking = params[:seeking]
       user.linkedin_url = params[:linkedin_url]
       if user.save
+        session[:user_id] = user.id
         render json: user.to_json, status: 201
       else
         render json: user.errors.to_json
