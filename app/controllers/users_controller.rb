@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user.get_all_buddies
+
   end
 
   def create
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
     user.seeking = params[:seeking]
     user.linkedin_url = params[:linkedin_url]
     if user.save
+      session[:user_id] = user.id
       redirect_to "/"
     end
   end
