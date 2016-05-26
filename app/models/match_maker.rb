@@ -31,14 +31,16 @@ class MatchMaker
         if user.id != attendee.id
           if user[:strength] == attendee[:seeking] || user[:seeking] == attendee[:strength]
           match = Match.create(user_one_id:"#{user.id}", user_two_id:"#{attendee.id}", event_id:"#{event.id}")
+          UserMailer.match_buddy(user.id, user.get_buddy(event.id).id, event.id).deliver_later
           break
+
       #delete match from array
           end
         end
         # return attendee
       end
     end
-  end  
+  end
 
   def bottom_of_the_barrel(event, user)
     if user.get_buddy(event.id)
@@ -54,7 +56,7 @@ class MatchMaker
         # return attendee
       end
     end
-  end  
+  end
 
   def matchmaker(event)
     users = event.users
@@ -76,5 +78,3 @@ class MatchMaker
   # end
 
 end
-
-
