@@ -35,9 +35,13 @@ height: 100px;
   position: relative;
 }
 
+.page-footer.indigo.lighten-4 {
+background-color: #DCDADE !important;
+}
+
 body {
  font-family: 'Inconsolata';
- background-color: lightgrey;
+ background-color: #DCDADE;
 }
 
 nav ul a,
@@ -325,6 +329,12 @@ button:hover {
   border: 1px solid black;
 }
 
+
+#test3 a:link
+{
+color:#A164C2;
+}
+
 .card-image.events-card-image {
 
   margin: 10px !important;
@@ -343,14 +353,19 @@ button:hover {
   margin-top: 10px;
 }
 
+#test1 {
+  margin-left: 55px;
+  margin-top: 40px;
+}
+
 .name {
   font-weight: bold;
   font-size: 1.25em;
 }
 
 .tab.col.s3:hover {
-  background-color: #CAC0CB;
-  transition: 1s;
+  background-color: #A164C2;
+  transition: 2s;
 }
 
 .tabs .tab a {
@@ -360,8 +375,6 @@ button:hover {
 .indicator {
   background-color: #A164C2 !important;
 }
-
-
 
 .profile-header {
   position: fixed;
