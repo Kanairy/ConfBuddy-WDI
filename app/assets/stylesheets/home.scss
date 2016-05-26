@@ -329,12 +329,17 @@ button:hover {
   font-size: 1.25em;
 }
 
+.tab.col.s3:hover {
+  background-color: #CAC0CB;
+  transition: 1s;
+}
+
 .tabs .tab a {
   color: black !important;
 }
 
 .indicator {
-  background-color: orange !important;
+  background-color: #A164C2 !important;
 }
 
 
