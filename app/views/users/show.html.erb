@@ -37,10 +37,12 @@
                     <p><img src="/<%=event.image%>" style="width: 200px"></p>
                 </div>
                 <div>
+                    <% current_user.get_buddy(event.id) %>
                     <% buddy = current_user.get_buddy(event.id) %>
                     <em>Your buddy for the event:</em>
                     <%= buddy.first_name %>
                     | <a href="<%= buddy.linkedin_specialities %>">Linkedin</a>
+                    <% end %>
                 </div>
                 <hr>
                 <% end %>
