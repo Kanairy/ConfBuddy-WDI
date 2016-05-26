@@ -30,19 +30,19 @@
         </div>
         <div id="test2" class="col s12">
             <div class="userevents">
-          
+
             <% current_user.events.each do |event| %>
-            <b><%= event.name %></b>
+            <b><%= event.name %></b> on <%= event.time %>
             <p><img src="/<%= event.image%>" style="width: 200px"></p>
+            <hr>
             <% end %>
             </div>
         </div>
         <div id="test3" class="col s12">
-            <div class="matchymatch">
+            <div class="matchymatch col s12">
                 <% current_user.events.each do |event| %>
                 <div>
                     <p><b><%= event.name %></b></p>
-                    <p><img src="/<%= event.image%>" style="width: 200px"></p>
                 </div>
                 <div>
                     <% if current_user.get_buddy(event.id) %>
@@ -50,7 +50,7 @@
                       <% puts current_user %>
                     <em>Your buddy for the event:</em>
                       <%= buddy.first_name %>
-                    | <a href="<%= buddy.linkedin_specialities %>">Linkedin</a>
+                    | <a href="<%= buddy.linkedin_specialities %>" style="color:#A164C2 !important">Linkedin</a>
                     <% end %>
                 </div>
                 <hr>
