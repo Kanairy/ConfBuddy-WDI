@@ -8,7 +8,6 @@ module Api
 
     def show
       user = User.find(params[:id])
-
       render json: user.to_json, status: 200
     end
 
@@ -32,6 +31,7 @@ module Api
     def login
       user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
         render json: user.to_json, status: 200
       else
         render json: user.errors.to_json

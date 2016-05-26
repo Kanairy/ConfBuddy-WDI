@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'materialize-sass'
 
+gem 'whenever', :require => false
+
+
 gem "linkedin-oauth2", "~> 1.0"
 
 # Use ActiveModel has_secure_password
@@ -46,7 +49,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   gem 'rails-pry'
-  
+
   gem 'pry-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
