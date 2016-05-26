@@ -24,6 +24,8 @@ $(document).ready(function(){
 
           var $newDiv = $(html);
           $('.row-test').append($newDiv);
+
+          $('.modal-trigger').leanModal();
       });
     });
   };
