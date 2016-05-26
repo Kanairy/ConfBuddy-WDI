@@ -17,7 +17,8 @@ $(document).ready(function(){
             eventTime: event.time,
             eventDescription: event.description,
             eventStream: event.stream,
-            eventSponsor: event.sponsor
+            eventSponsor: event.sponsor,
+            eventImg: event.image
 
           });
 

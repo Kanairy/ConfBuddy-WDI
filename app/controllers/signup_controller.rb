@@ -8,9 +8,29 @@ class SignupController < ApplicationController
     api = LinkedIn::API.new(access_token)
     # https://developer.linkedin.com/docs/fields/basic-profile
     # can get as many of these fields as we want, simply add elements to the array below:
-    original_picture = api.profile(fields: ["picture-urls::(original)", "first-name", "location"])
-    #TODO: redirect to profile page or some other logical place
-    render json: original_picture.to_json, status: 201
+    api_response = api.profile(fields: [
+      "picture-urls::(original)",
+      "location",
+      "industry",
+      "headline",
+      "id",
+      "public-profile-url"
+      ])
+
+    # TODO: get the userid from the currently logged in user
+    # user = User.find(params[:id])
+
+    # user.linkedin_id = api_response.id
+    # user.linkedin_image_url = api_response.picture_urls.all[0]
+    # user.linkedin_headline = api_response.picture_urls.headline
+
+    # putting the linkedin url into the specialities for now...
+
+    # user.linkedin_specialities = api_response.public_profile_url
+
+    # TODO: Redirect to the profile page
+    
+    redirect_to '/'
   end
 
   def oauth2
