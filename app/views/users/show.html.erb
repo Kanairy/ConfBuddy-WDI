@@ -34,13 +34,14 @@
                 <% current_user.events.each do |event| %>
                 <div>
                     <b><%= event.name %></b>
-                    <p><img src="/<%=event.image%>" style="width: 200px"></p>
+                    <p><img src="/<%= event.image%>" style="width: 200px"></p>
                 </div>
                 <div>
                     <% if current_user.get_buddy(event.id) %>
                     <% buddy = current_user.get_buddy(event.id) %>
+                      <% puts current_user %>
                     <em>Your buddy for the event:</em>
-                    <%= buddy.first_name %>
+                      <%= buddy.first_name %>
                     | <a href="<%= buddy.linkedin_specialities %>">Linkedin</a>
                     <% end %>
                 </div>
