@@ -61,7 +61,7 @@ class MatchMaker
   end
 
   def event_match_maker(event)
-    users = event.users
+    users = event.users.shuffle
     users.each do |user|
       perfect_match(event, user)
     end
@@ -74,7 +74,7 @@ class MatchMaker
   end
 
   def match_maker()
-    events = Event.all
+    events = Event.all.shuffle
     events.each do |event|
       event_match_maker(event)
     end

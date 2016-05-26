@@ -163,7 +163,13 @@
 
 
 <script>
+    $(document).ready(function () {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 
+
+    $('.time-entry').addClass("modal-trigger");
+    $('.modal-trigger').leanModal();
+    
     var timetable = new Timetable();
 
     timetable.setScope(9, 2)
@@ -188,10 +194,6 @@
     var renderer = new Timetable.Renderer(timetable);
     renderer.draw('.timetable');
 
-    $('.time-entry').addClass("modal-trigger");
 
-    $(document).ready(function () {
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
     });
 </script>
