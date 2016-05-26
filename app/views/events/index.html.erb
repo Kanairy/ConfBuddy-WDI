@@ -1,6 +1,3 @@
-
-
-
 <div class="row events-tabs-container">
     <div class="col s12">
         <ul class="tabs">
@@ -12,181 +9,144 @@
                 <a href="#timetable-tab">Timetable</a>
             </li>
 
-
         </ul>
     </div>
     <div id="events-tab" class="col s12">
-      <div class="cards-test">
-          <div class="row row-test">
-              <script id="event-card-template" type="text/x-handlebars-template">
+        <div class="cards-test">
+            <div class="row row-test">
+                <script id="event-card-template" type="text/x-handlebars-template">
 
-                  <div class="col s12 m6 l4 modal-trigger" id="card{{ id }}" data-target="modal{{id}}">
-                      <div class="card events-card">
+                    <div class="signup-contents col s12 m6 l4">
 
-                          <div class="card-image events-card-image">
-                              <div class="events-card-image-container fill z-depth-1">
-                                  <img class="events-card-image-inner fill-img" src="{{ eventImg }}">
-                              </div>
+                        <div class=" modal-trigger" id="card{{ id }}" data-target="modal{{id}}">
+                            <div class="card events-card">
 
-                              <div class="card-content">
-                                  <h5 class="events-card-title">{{ eventName }}</h5>
-                              </div>
+                                <div class="card-image events-card-image">
+                                    <div class="events-card-image-container fill z-depth-1">
+                                        <img class="events-card-image-inner fill-img" src="{{ eventImg }}">
+                                    </div>
 
+                                    <div class="card-content">
+                                        <h5 class="events-card-title">{{ eventName }}</h5>
+                                    </div>
 
-                              <div class="card-content events-card-presenter">
-                                  <p>{{ eventPresenter }}</p>
-                              </div>
-                              <div class="card-content events-card-time">
+                                    <div class="card-content events-card-presenter">
+                                        <p>{{ eventPresenter }}</p>
+                                    </div>
+                                    <div class="card-content events-card-time">
 
-                                  <!-- <i class="material-icons events-card-icons">schedule</i> -->
-                                  <i class="fa fa-clock-o events-card-icons" aria-hidden="true"></i>
-                                  <p class="events-card-time-inner">{{ eventTime }}</p>
+                                        <i class="material-icons events-card-icons">schedule</i>
 
-                              </div>
+                                        <p class="events-card-time-inner">{{ eventTime }}</p>
 
+                                    </div>
 
-                          </div>
-                      </div>
+                                </div>
+                            </div>
 
-                      <div id="modal{{id}}" class="modal">
-                          <div class="modal-content modal-content-timetable">
+                            <div id="modal{{id}}" class="modal">
+                                <div class="modal-content modal-content-timetable">
+                                    <div class="row">
+                                        <img class="col s12 m6 offset-m3" src="{{ eventImg }}">
+                                    </div>
 
+                                    <h4 class="modal-content-title">{{ eventName }}</h4>
+                                    <div class="line-divider"></div>
 
-                                  <img class="col s12 m6" src="{{ eventImg }}">
+                                    <!-- <div class="modal-content-chips">
+                                        <div class="chip">
+                                            Javascript
+                                        </div>
+                                        <div class="chip">
+                                            Lecture
+                                        </div>
+                                        <div class="chip">
+                                            Hacker
+                                        </div>
+                                    </div> -->
 
+                                    <div class="col s12">
+                                        <p class="modal-content-span">Presenter:</p>
+                                        <h5 class="modal-content-presenter">{{ eventPresenter }}</h5>
+                                        <div class="row">
+                                            <p class="modal-content-span col s6">Time:
+                                                <span class="modal-content-span-inner">{{ eventTime }}</span>
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="modal-content-span col s6">Sponsor:
+                                                <span class="modal-content-span-inner">{{ eventSponsor }}</span>
+                                            </p>
+                                        </div>
 
-                              <h4 class="modal-content-title">{{ eventName }}</h4>
-                              <div class="line-divider"></div>
+                                        <!-- <div class="modal-content-presenter-img-container col s12 m4 offset-m4">
+                                            <img class="modal-content-presenter-img col s12 m4 offset-m4" src="http://codewinds.com/assets/people/guy-bedford-jsconf-2014.jpg">
+                                        </div> -->
 
-                              <div class="modal-content-chips">
-                                  <div class="chip">
-                                      Javascript
-                                  </div>
-                                  <div class="chip">
-                                      Lecture
-                                  </div>
-                                  <div class="chip">
-                                      Hacker
-                                  </div>
-                              </div>
+                                    </div>
 
-                              <div class="col m6 s12">
-                                  <p class="modal-content-span">Presenter:</p>
-                                  <h5 class="modal-content-presenter">{{ eventPresenter }}</h5>
-                                  <div class="modal-content-presenter-img-container">
-                                      <img class="modal-content-presenter-img" src="http://codewinds.com/assets/people/guy-bedford-jsconf-2014.jpg">
-                                  </div>
+                                    <div class="col s12">
+                                        <p class="modal-content-span">Description:</p>
+                                        <p class="modal-content-description">{{ eventDescription }}</p>
 
-                              </div>
+                                        <!-- <p class="modal-content-span">Stream:</p> -->
+                                        <!-- <p class="modal-content-stream">{{ eventStream }}</p> -->
 
-                              <div class="col m6 s12">
-                                  <p class="modal-content-span">Description:</p>
-                                  <p class="modal-content-description">{{ eventDescription }}</p>
-                                  <p class="modal-content-span">Time:</p>
-                                  <p class="modal-content-time">{{ eventTime }}</p>
-                                  <p class="modal-content-span">Sponsor:</p>
-                                  <p class="modal-content-sponsor">{{ eventSponsor }}</p>
-                                  <p class="modal-content-span">Stream:</p>
-                                  <p class="modal-content-stream">{{ eventStream }}</p>
+                                    </div>
 
-                              </div>
-
-                              <div class="modal-footer">
-                                  <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
-                              </div>
-                          </div>
-                      </div>
-
-                  </script>
-              </div>
-          </div>
-      </div>
-
-    </div>
-
-    <div id="timetable-tab" class="col s12">
-        <div class="events-timetable-day1">
-
-            <div class="timetable"></div>
-
-            <!-- Modal Structure -->
-            <div id="modalA" class="modal">
-                <div class="modal-content modal-content-timetable">
-                    <h3 class="modal-content-title">Javascript - Understanding the weird parts</h3>
-                    <div class="line-divider"></div>
-
-                    <div class="modal-content-chips">
-                        <div class="chip">
-                            Javascript
+                                    <div class="modal-footer">
+                                        <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="chip">
-                            Lecture
-                        </div>
-                        <div class="chip">
-                            Hacker
-                        </div>
-                    </div>
 
-                    <p class="modal-content-span">Presenter:</p>
-                    <h4 class="modal-content-presenter">Douglas Crockford</h4>
-                    <div class="modal-content-presenter-img-container">
-                      <img class="modal-content-presenter-img" src="http://codewinds.com/assets/people/guy-bedford-jsconf-2014.jpg">
-                    </div>
+                    </script>
 
-                    <p class="modal-content-span">Time:</p>
-                    <p class="modal-content-time">4th of June // 9.30am</p>
-
-                    <p class="modal-content-span">Description:</p>
-                    <p class="modal-content-description">The famous Javascript programmer and published author Douglas Crockford reveals his most hated parts of popular programming language and tells his secret to overcome these. He also argues why Javascript still
-                        remains as the most useful programming language in the future.</p>
-
-                    <p class="modal-content-span">Sponsor:</p>
-                    <p class="modal-content-sponsor">
-                        Zendesk
-                    </p>
-
-                    <p class="modal-content-span">Stream:</p>
-                    <p class="modal-content-stream">Hacker</p>
-
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
                 </div>
             </div>
         </div>
+
+        </div>
     </div>
+</div>
+
+<div id="timetable-tab" class="col s12">
+    <div class="events-timetable-day1">
+
+        <div class="timetable"></div>
+
+
 
 </div>
 
-
-
-
-
-
 <script>
-    $(document).ready(function () {
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+$(document).ready(function () {
 
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 
     $('.time-entry').addClass("modal-trigger");
     $('.modal-trigger').leanModal();
-    
+
     var timetable = new Timetable();
 
     timetable.setScope(9, 2)
 
-    timetable.addLocations([
-        'Common Hall',
-        'Convention Center',
-        'Los Angeles',
-        'London',
-        'New York',
-        'Jakarta',
-        'Tokyo',
-        'Lecture Hall 1'
-    ]);
+    timetable.addLocations(['Convention Center', 'Elizebeth Center', 'Lecture Hall 1', 'Gordon Hall', 'William Room']);
 
-    timetable.addEvent('Javascript Understanding the weird parts', 'Lecture Hall 1', new Date(2016, 06, 04, 9, 30), new Date(2016, 06, 04, 12, 30), '#modalA');
+    timetable.addEvent('Javascript Understanding the weird parts', 'Lecture Hall 1', new Date(2016, 06, 04, 9, 30), new Date(2016, 06, 04, 12, 30), '#modal1');
+    timetable.addEvent('Why I rather communicate with computers than humans', 'Elizebeth Center', new Date(2016, 06, 04, 11, 30), new Date(2016, 06, 04, 13, 30), '#modal2');
+    timetable.addEvent('How to rock your own programming language', 'Lecture Hall 1', new Date(2016, 06, 04, 14, 30), new Date(2016, 06, 04, 16, 30), '#modalC');
+    timetable.addEvent('Keeping that plane in the air - How to code safely in risky industries', 'Lecture Hall 1', new Date(2016, 06, 04, 16, 30), new Date(2016, 06, 04, 19, 00), '#modalD');
+
+    timetable.addEvent('Uber: Why disruption changes the tech industry', 'Gordon Hall', new Date(2016, 06, 04, 9, 00), new Date(2016, 06, 04, 11, 00), '#modalE');
+    timetable.addEvent('Why diversity matters in programming', 'William Room', new Date(2016, 06, 04, 10, 30), new Date(2016, 06, 04, 15, 00), '#modalE');
+
+    timetable.addEvent('Why we should love CSS - and whats next', 'Convention Center', new Date(2016, 06, 04, 9, 30), new Date(2016, 06, 04, 16, 30), '#modalE');
+    timetable.addEvent('What matters during the first weeks after launching a startup', 'Elizebeth Center', new Date(2016, 06, 04, 14, 30), new Date(2016, 06, 04, 17, 00), '#modalE');
+
+    timetable.addEvent('What matters during the first weeks after launching a startup', 'Gordon Hall', new Date(2016, 06, 04, 12, 00), new Date(2016, 06, 04, 14, 00), '#modalE');
+
     // timetable.addEvent('Why I rather communicate with computers than humans', 'Madrid', new Date(2015,7,17,12), new Date(2015,7,17,13), '#'); timetable.addEvent('Zumbu', 'Madrid', new Date(2015,7,17,13,30), new Date(2015,7,17,15), '#');
     // timetable.addEvent('Lasergaming', 'London', new Date(2015,7,17,17,45), new Date(2015,7,17,19,30), '#'); timetable.addEvent('All-you-can-eat grill', 'New York', new Date(2015,7,17,21), new Date(2015,7,18,1,30), '#'); timetable.addEvent('Hackathon',
     // 'Tokyo', new Date(2015,7,17,11,30), new Date(2015,7,17,20)); // url is optional and is not used for this event timetable.addEvent('Tokyo Hackathon Livestream', 'Los Angeles', new Date(2015,7,17,12,30), new Date(2015,7,17,16,15)); // url is
@@ -195,6 +155,7 @@
     var renderer = new Timetable.Renderer(timetable);
     renderer.draw('.timetable');
 
+});
 
-    });
+
 </script>
