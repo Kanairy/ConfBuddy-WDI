@@ -24,11 +24,13 @@
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
           <% if logged_in? %>
-          <li>form action="/sessions" method="post" class="logout-form">
-              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <input type="hidden" value="delete" name="_method">
-              <button>Log Out</button>
-            </form></li>
+            <li>
+              <form action="/sessions" method="post">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" value="delete" name="_method">
+                <button>Log Out</button>
+              </form>
+            </li>
             <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <li><a href="index2.html">Confbuddy</a></li>
@@ -44,12 +46,14 @@
           <% end %>
 
           <% if logged_in? %>
-          <li><form action="/sessions" method="post" class="logout-form">
+          <li>
+            <form action="/sessions" method="post">
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
               <input type="hidden" value="delete" name="_method">
               <button>Log Out</button>
-            </form></li>
-            <li><a href="/users/<%= sessions[:user_id] %>">Profile</a></li>
+            </form>
+          </li>
+            <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <li><a href="index2.html">Confbuddy</a></li>
           <% end%>
