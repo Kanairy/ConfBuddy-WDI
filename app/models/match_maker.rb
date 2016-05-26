@@ -6,7 +6,7 @@ class MatchMaker
     if user.get_buddy(event.id)
       return
     end
-    array = event.users
+    array = event.users.shuffle
     array.each do |attendee|
       if attendee.get_buddy(event) == nil
     #checks for perfect match
@@ -26,7 +26,7 @@ class MatchMaker
     if user.get_buddy(event.id)
       return
     end
-    array = event.users
+    array = event.users.shuffle
     array.each do |attendee|
       if attendee.get_buddy(event) == nil
     #checks for perfect match
@@ -46,7 +46,7 @@ class MatchMaker
     if user.get_buddy(event.id)
       return
     end
-    array = event.users
+    array = event.users.shuffle
     array.each do |attendee|
       if user.id != attendee.id
         if attendee.get_buddy(event) == nil
@@ -79,19 +79,19 @@ class MatchMaker
     end
   end
 
-  def buddy_email()
-    events = Event.all
-    events.each do |event|
-      users = event.users
-      users.each do |user|
-        if user.get_buddy(event.id) == nil
-          puts "you are a loner"
-        else
-          puts "#{user.first_name} is partnered with #{user.get_buddy(event.id).first_name}"
-        end
-      end
-    end
-  end
+  # def buddy_email()
+  #   events = Event.all
+  #   events.each do |event|
+  #     users = event.users
+  #     users.each do |user|
+  #       if user.get_buddy(event.id) == nil
+  #         puts "you are a loner"
+  #       else
+  #         puts "#{user.first_name} is partnered with #{user.get_buddy(event.id).first_name}"
+  #       end
+  #     end
+  #   end
+  # end
 
 end
 
