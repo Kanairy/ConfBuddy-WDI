@@ -29,10 +29,10 @@
           <% end %>
           <% if logged_in? %>
             <li>
-              <form action="/sessions" method="post">
+              <form action="/sessions" method="post" id="my_form">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <input type="hidden" value="delete" name="_method">
-                <button>Log Out</button>
+                <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">Log Out</a>
               </form>
             </li>
             <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
@@ -53,7 +53,7 @@
             <form action="/sessions" method="post">
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
               <input type="hidden" value="delete" name="_method">
-              <button>Log Out</button>
+              <a>Log out</a>
             </form>
           </li>
             <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
