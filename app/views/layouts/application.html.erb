@@ -19,7 +19,7 @@
         <ul class="right hide-on-med-and-down">
           <% if !logged_in? %>
           <li><a href="/signup">Register event</a></li>
-          <li><a href="#modal-login" class="modal-trigger">Log in</a></li>
+
           <li><a href="/events">Event</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
@@ -31,7 +31,7 @@
                 <button>Log Out</button>
               </form>
             </li>
-            <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
+            <li><a href="/users/<%= current_user.id %>">Profile</a></li>
           <li><a href="#schedule" class="scroll">Schedule</a></li>
           <li><a href="/">Confbuddy</a></li>
           <% end%>
