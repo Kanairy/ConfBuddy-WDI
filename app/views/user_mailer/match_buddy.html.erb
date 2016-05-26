@@ -4,13 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to confbuddy.com, <%= @user.first_name %></h1>
-  
+
+    <h2>Welcome to confbuddy.com, <%= @user.first_name %></h2>
+
     <p>
       You decide to be matched to a buddy for the day of the conference.
-      You've been paired with <%= @buddy.first_name %> <%= @buddy.last_name %>
-      for the event <h3><%= @event.name %></h3>. Go
-      and check your buddy linkedin profile on  <%= @buddy.linkedin_url %>
+      You've been paired with <%= @buddy.first_name %>
+      for the event <h3><%= @event.name %></h3> on <%= @event.time %>.
+
 
       You are able to get a free meal at the Food Court on the day of
       the conference with your buddy, so you will have
