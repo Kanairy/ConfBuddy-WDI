@@ -25,7 +25,6 @@
           <li><a href="/signup">Register event</a></li>
 
           <li><a href="/events">Event</a></li>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
           <% if logged_in? %>
             <li>
@@ -36,10 +35,8 @@
               </form>
             </li>
             <li><a href="/users/<%= current_user.id %>">Profile</a></li>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
-
-          <li><a href="/">Confbuddy</a></li>
-
+            <li><a href="/">Confbuddy</a></li>
+            <li><a href="/events">Event</a></li>
           <% end%>
         </ul>
 
@@ -48,7 +45,6 @@
           <li><a href="/signup">Register event</a></li>
           <li><a href="#modal-login" class="modal-trigger">Log in</a></li>
           <li><a href="/events">Event</a></li>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
           <% end %>
 
           <% if logged_in? %>
@@ -60,7 +56,7 @@
             </form>
           </li>
             <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
-          <li><a href="#schedule" class="scroll">Schedule</a></li>
+            <li><a href="/events">Event</a></li>
           <li><a href="/">Confbuddy</a></li>
           <% end%>
         </ul>
