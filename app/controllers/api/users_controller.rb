@@ -24,7 +24,8 @@ module Api
       if user.save
         session[:user_id] = user.id
         attending_events = params[:attending_events]
-        attending_events = attending_events.split(',')
+
+        # attending_events = attending_events.split(',')
         attending_events.each do | event |
           e = Event.find_by(name: event)
           e.users << user
