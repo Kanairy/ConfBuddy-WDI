@@ -238,23 +238,6 @@
     });
 
     $('.modal-trigger').leanModal();
-    $("#card1").clone().append("#card1-owl");
-
-    var owl = $('.owl-carousel');
-    owl.owlCarousel({
-        items: 4,
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true
-    });
-    $('.play').on('click', function () {
-        owl.trigger('play.owl.autoplay', [1000])
-    })
-    $('.stop').on('click', function () {
-        owl.trigger('stop.owl.autoplay')
-    })
 
     var hashTagActive = "";
     $(".scroll").click(function (event) {
@@ -282,4 +265,5 @@
 
         }); // end of document ready
     })(jQuery); // end of jQuery name space
+    
 </script>
