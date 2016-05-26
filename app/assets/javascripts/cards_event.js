@@ -26,6 +26,9 @@
           $('.row-test').append($newDiv);
 
           $('.modal-trigger').leanModal();
+
+
+
       });
     });
   };

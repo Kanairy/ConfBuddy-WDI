@@ -1,3 +1,6 @@
+
+<div class="index-background-grey">
+
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
         <div class="container">
@@ -11,57 +14,58 @@
             </div>
             <br><br>
 
+
+            </div>
         </div>
+        <div class="parallax"><img src="http://images6.fanpop.com/image/photos/37900000/hi-tech-wall-paper-hi-tech-37969755-2560-1600.jpg" alt="Unsplashed background img 1"></div>
     </div>
-    <div class="parallax"><img src="http://images6.fanpop.com/image/photos/37900000/hi-tech-wall-paper-hi-tech-37969755-2560-1600.jpg" alt="Unsplashed background img 1"></div>
-</div>
 
-<div class="container">
-    <div class="section">
+    <div class="container">
+        <div class="section">
 
-        <!--   Icon Section   -->
-        <div class="row">
-            <div class="col s12 m4">
-                <div class="icon-block">
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
 
-                    <h5 class="center">Technology</h5>
+                        <h5 class="center">Technology</h5>
 
-                    <p class="light">We give insight of tomorrow's technology. Our visionaries provide views of where the industry is going and how you will be part of the impact.</p>
+                        <p class="light">We give insight of tomorrow's technology. Our visionaries provide views of where the industry is going and how you will be part of the impact.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h5 class="center">Business</h5>
+
+                        <p class="light">Want to change the world with your business? Our speakers have done it and now they will gather to tell you exclusively what brought them to the top.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+
+                        <h5 class="center">Design</h5>
+
+                        <p class="light">How to create powerful visuals to support your goals. Our design expert speakers share their experience on creating design that remains.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h5 class="center">Business</h5>
+        </div>
+    </div>
 
-                    <p class="light">Want to change the world with your business? Our speakers have done it and now they will gather to tell you exclusively what brought them to the top.</p>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="icon-block">
-
-                    <h5 class="center">Design</h5>
-
-                    <p class="light">How to create powerful visuals to support your goals. Our design expert speakers share their experience on creating design that remains.</p>
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
                 </div>
             </div>
         </div>
-
+        <div class="parallax"><img src="https://spin.atomicobject.com/wp-content/uploads/programming-is-magic.jpg" alt="Unsplashed background img 2"></div>
     </div>
-</div>
-
-<div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-        <div class="container">
-            <div class="row center">
-                <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
-            </div>
-        </div>
-    </div>
-    <div class="parallax"><img src="https://spin.atomicobject.com/wp-content/uploads/programming-is-magic.jpg" alt="Unsplashed background img 2"></div>
-</div>
-<!--
+    <!--
   <div class="container" id="schedule">
     <div class="section story">
 
@@ -100,55 +104,95 @@
                   <div>"Keeping that plane in the air - How to code safely in risky industries"</div>
                   <div><b>Speaker:</b> Leanna Rierson</div> -->
 
-<div class="cards-test">
-    <div class="row row-test">
-        <script id="event-card-template" type="text/x-handlebars-template">
+    <div class="owl-carousel">
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+    </div>
 
-            <div class="col s12 m6 l4" id="card{{ id }}">
-                <div class="card events-card">
-                    <div class="card-image events-card-image">
-                        <img src="{{ eventImg }}">
-                        <span class="card-title events-card-title">{{ eventName }}</span>
+    <div class="cards-test">
+        <div class="row row-test">
 
-                        <div class="card-content events-card-presenter">
-                            <p>{{ eventPresenter }}</p>
-                        </div>
-                        <div class="card-content events-card-time">
-                            <p>{{ eventTime }}</p>
-                        </div>
-                        <div class="card-content events-card-description">
+            <script id="event-card-template" type="text/x-handlebars-template">
+
+                <div class="col s12 m6 l4 modal-trigger" id="card{{ id }}" data-target="modal{{id}}">
+                    <div class="card events-card">
+
+                        <div class="card-image events-card-image">
+                            <div class="events-card-image-container fill z-depth-1">
+                                <img class="events-card-image-inner fill-img" src="{{ eventImg }}">
+                            </div>
+
+                            <div class="card-content">
+                                <h5 class="events-card-title">{{ eventName }}</h5>
+                            </div>
+                            <!-- <div class="chip">
+                            {{ eventStream }}
+                        </div> -->
+
+                            <div class="card-content events-card-presenter">
+                                <p>{{ eventPresenter }}</p>
+                            </div>
+                            <div class="card-content events-card-time">
+
+                                <i class="material-icons events-card-icons">schedule</i>
+                                <p class="events-card-time-inner">{{ eventTime }}</p>
+
+                            </div>
+                            <!-- <div class="card-content events-card-description">
                             <p>{{ eventDescription }}</p>
-                        </div>
-                        <div class="card-content events-card-sponsor">
+                        </div> -->
+                            <!-- <div class="card-content events-card-sponsor">
                             <p>{{ eventSponsor }}</p>
-                        </div>
-                        <div class="card-content events-card-stream">
+                        </div> -->
+                            <!-- <div class="card-content events-card-stream">
                             <p>{{ eventStream }}</p>
-                        </div>
-                        <div class="card-action">
+                        </div> -->
+
+                            <!-- <div class="card-action">
                             <a href="#modal{{ id }}" class="modal-trigger">more info.</a>
-                        </div>
+                        </div> -->
 
+                        </div>
                     </div>
-                </div>
 
-                <div id="modal{{id}}" class="modal">
-                    <div class="modal-content modal-content-timetable">
-                        <h4 class="modal-content-title">{{ eventName }}</h4>
-                        <div class="line-divider"></div>
+                    <div id="modal{{id}}" class="modal">
+                        <div class="modal-content modal-content-timetable">
 
-                        <div class="modal-content-chips">
-                            <div class="chip">
-                                Javascript
-                            </div>
-                            <div class="chip">
-                                Lecture
-                            </div>
-                            <div class="chip">
-                                Hacker
-                            </div>
-                        </div>
+                            <img class="col s12 m6" src="{{ eventImg }}">
 
+                            <h4 class="modal-content-title">{{ eventName }}</h4>
+                            <div class="line-divider"></div>
+
+                            <div class="modal-content-chips">
+                                <div class="chip">
+                                    Javascript
+                                </div>
+                                <div class="chip">
+                                    Lecture
+                                </div>
+                                <div class="chip">
+                                    Hacker
+                                </div>
+                            </div>
 
                             <div class="col m6 s12">
                                 <p class="modal-content-span">Presenter:</p>
@@ -159,7 +203,7 @@
 
                             </div>
 
-                            <div class="col m16 s12">
+                            <div class="col m6 s12">
                                 <p class="modal-content-span">Description:</p>
                                 <p class="modal-content-description">{{ eventDescription }}</p>
                                 <p class="modal-content-span">Time:</p>
@@ -171,27 +215,53 @@
 
                             </div>
 
-
-                        <div class="modal-footer">
-                            <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </script>
-        </div>
-    </div>
-</div>
+                </script>
 
-<div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-        <div class="container">
-            <div class="row center">
-                <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
             </div>
         </div>
     </div>
-    <div class="parallax"><img src="https://evolverefrigeration.com/wp-content/uploads/2015/08/vaccine-storage-and-internet-of-things.jpg" alt="Unsplashed background img 3"></div>
+
+    <div class="owl-carousel">
+        <div id="card1-owl">
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+        <div>
+            Your Content
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="https://evolverefrigeration.com/wp-content/uploads/2015/08/vaccine-storage-and-internet-of-things.jpg" alt="Unsplashed background img 3"></div>
+    </div>
+
 </div>
 
 <footer class="page-footer indigo lighten-4">
@@ -217,6 +287,23 @@
 
 
     $('.modal-trigger').leanModal();
+    $("#card1").clone().append("#card1-owl");
+
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items: 4,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true
+    });
+    $('.play').on('click', function () {
+        owl.trigger('play.owl.autoplay', [1000])
+    })
+    $('.stop').on('click', function () {
+        owl.trigger('stop.owl.autoplay')
+    })
 
     var hashTagActive = "";
     $(".scroll").click(function (event) {
