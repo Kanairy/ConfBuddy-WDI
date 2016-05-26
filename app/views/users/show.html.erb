@@ -7,7 +7,7 @@
       <li class="tab col s3"><a href="#test1" onclick="Materialize.showStaggeredList('#staggered-test')">Profile</a></li>
       <li class="tab col s3"><a href="#test2">Timetable</a></li>
       <li class="tab col s3"><a href="#test3">Find matches</a></li>
-      <li class="tab col s3"><a href="#test4">Buddy meetings</a></li>
+      <li class="tab col s3"><a href="#test4">Event details</a></li>
     </ul>
   </div>
   <div id="test1" class="col s12">
@@ -21,7 +21,16 @@
       </div>
   </div>
   <div id="test2" class="col s12">Here is your timetable</div>
-  <div id="test3" class="col s12">Here are your matches</div>
+  <div id="test3" class="col s12">Here are your matches
+    <div class="matchymatch">
+
+            <% current_user.get_all_buddies.each do |match| %>
+             <%= @Event = Event.find(match.event_id) %>
+             <%= @Event.name %>
+             <% end %>
+
+    </div>
+  </div>
   <div id="test4" class="col s12">Here are your arranged buddy meetings</div>
 </div>
 </div>
