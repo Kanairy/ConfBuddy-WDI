@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :events
   resources :users
 
-
   # ================ api controllers return JSON=====================
     namespace :api do
       resources :events
