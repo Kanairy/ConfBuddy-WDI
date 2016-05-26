@@ -2,14 +2,15 @@
 .signup-checkbox{
   height:100px;
   display: block;
-  background-color: white;
+  background-color: whitesmoke;
   margin-top: -16px;
   margin-bottom: 13px;
+  transition: all 0.25s ease;
 }
 
 .signup-checkbox:hover{
   background-color: darkgreen;
-  transition: .25s;
+
 }
 
 
@@ -17,6 +18,13 @@
   padding:25px;
 }
 
+.modal-content-span-inner{
+  font-weight: normal;
+}
+
+.modal-content-span{
+  padding: 0 !important;
+}
 
 
 
@@ -80,7 +88,7 @@ h1, h2, h3, h4, h5, h6, p, label, input, a {
 
 .signup-coding-option1, .signup-coding-option2{
   background-color: whitesmoke;
-  height: 200px;
+  height: 115px;
   position: relative;
   border: 2px white solid;
 
@@ -118,7 +126,7 @@ h1, h2, h3, h4, h5, h6, p, label, input, a {
 }
 
 .signup-coding-image{
-  height: 120px;
+  height: 50px;
   width: auto;
   margin: auto;
   margin-top: 18px;

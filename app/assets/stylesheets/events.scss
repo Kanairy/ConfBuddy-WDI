@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.events-card-image-inner:hover{
+  transform: scale(1.1);
+  transition: 0.25s;
+}
+.events-card-image-inner{
+
+  transition: all 0.25s ease;
+}
+
+
 .events-card{
   cursor: pointer;
 }
