@@ -55,7 +55,7 @@
               <a>Log out</a>
             </form>
           </li>
-            <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
+            <li><a href="/users/<%= current_user.id %>">Profile</a></li>
             <li><a href="/events">Event</a></li>
           <li><a href="/">Confbuddy</a></li>
           <% end%>
@@ -72,9 +72,6 @@
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <input type="text" name="email" placeholder="Email Address">
       <input type="password" name="password" placeholder="Password">
-      <!-- <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
-      </div> -->
       <button class=" modal-action modal-close waves-effect waves-green btn-flat">Log In</button>
     </form>
 

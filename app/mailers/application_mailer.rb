@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "confbuddy@gmail.com"
+  default from: "wdi-conf"
   layout 'mailer'
 end
