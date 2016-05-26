@@ -71,22 +71,15 @@ Type.create(name:"Startup");
 
 har = User.create(first_name:"Harry", strength:"Javascript", seeking:"Css", password: "tomaatti", email: "harry.aydin.23@gmail.com");
 ali = User.create(first_name:"Alimain", strength:"Css", seeking:"Javascript", password: "tomaatti", email: "am@ga.co");
-<<<<<<< HEAD
-kat = User.create(first_name:"Katy", strength:"Css", seeking:"Ruby", password: "tomaatti", email: "kd@ga.co");
-pau = User.create(first_name:"Pauliina", strength:"Css", seeking:"Ruby", password: "tomaatti", email: "ps@ga.co");
-wol = User.create(first_name:"Wolf", strength:"Ruby", seeking:"Css", password: "tomaatti", email: "nw@ga.co");
 pal = User.create(first_name:"Paul", strength:"Ruby", seeking:"Css", password: "tomaatti", email: "ps@ga.co");
 lj =  User.create(first_name:"LJ", strength:"Css", seeking:"Angular", password: "tomaatti", email: "lj@ga.co");
 chr = User.create(first_name:"Chris", strength:"Ruby", seeking:"Angular", password: "tomaatti", email: "cm@ga.co");
 kei = User.create(first_name:"Keith", strength:"Ruby", seeking:"Ruby", password: "tomaatti", email: "cm@ga.co");
 avi = User.create(first_name:"avika", strength:"Ruby", seeking:"Angular", password: "tomaatti", email: "cm@ga.co");
-
-
-=======
 kat = User.create(first_name:"Katy", strength:"Css", seeking:"Ruby", password: "tomaatti", email: "katy.dattoma@gmail.com");
 pau = User.create(first_name:"Pauliina", strength:"Css", seeking:"Javascript", password: "tomaatti", email: "pauliina.solanne@gmail.com");
 wol = User.create(first_name:"Wolf", strength:"Ruby", seeking:"Css", password: "tomaatti", email: "me@nickwolf.com.au");
->>>>>>> 16c72c6175b23b922c3e209aecee8b35412d32ec
+
 
 jsEvent.users << har
 jsEvent.users << ali
