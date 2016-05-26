@@ -29,7 +29,6 @@ class SignupController < ApplicationController
     # user.linkedin_specialities = api_response.public_profile_url
 
     # TODO: Redirect to the profile page
-    
     redirect_to '/'
   end
 
