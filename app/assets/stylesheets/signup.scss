@@ -9,11 +9,12 @@
 
 .signup-checkbox:hover{
   background-color: darkgreen;
+  transition: .25s;
 }
 
 
 .signup-checkbox-inner{
-  
+  padding:25px;
 }
 
 
@@ -48,6 +49,11 @@
 
 .green{
   background-color: green;
+  transition: .25s;
+  color: white;
+}
+
+.white-text{
   transition: .25s;
   color: white;
 }
