@@ -79,6 +79,19 @@ class MatchMaker
     end
   end
 
+  def buddy_email()
+    events = Event.all
+    events.each do |event|
+      users = event.users
+      users.each do |user|
+        if user.get_buddy(event.id) == nil
+          puts "you are a loner"
+        else
+          puts "#{user.first_name} is partnered with #{user.get_buddy(event.id).first_name}"
+        end
+      end
+    end
+  end
 
 end
 
