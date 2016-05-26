@@ -20,8 +20,15 @@ module Api
       user.strength = params[:strength]
       user.seeking = params[:seeking]
       user.linkedin_url = params[:linkedin_url]
+
       if user.save
         session[:user_id] = user.id
+        attending_events = params[:attending_events]
+        attending_events = attending_events.split(',')
+        attending_events.each do | event |
+          e = Event.find_by(name: event)
+          e.users << user
+        end
         render json: user.to_json, status: 201
       else
         render json: user.errors.to_json
