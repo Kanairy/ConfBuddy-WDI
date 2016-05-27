@@ -11,6 +11,15 @@
 
 }
 
+.profile-tabs{
+  border-left: 1px solid #A164C2;
+  border-bottom: 1px solid #A164C2;
+}
+
+// .profile-tabs-left{
+//   border-left: 1px solid #A164C2;
+// }
+
 .index-events-card-img{
   width: 100%;
   position: absolute;
@@ -50,7 +59,7 @@ nav .brand-logo {
 }
 
 h5 {
- 
+
 }
 
 p {
@@ -319,11 +328,9 @@ button:hover {
   margin-top: 10px;
 }
 .profile {
-  margin: 0 auto;
-  margin-top: 125px;
-  top: 20%;
-  left: 20%;
-  width: 650px;
+
+  margin-top: 90px;
+  overflow: hidden;
   min-height: 400px;
   background-color: white;
   font-family: 'Inconsolata';
@@ -336,16 +343,21 @@ button:hover {
 color:#A164C2;
 }
 
-
+.profiletable{
+  border-bottom: 1px solid purple;
+  padding: 0 !important;
+}
 
 
 .userevents {
   margin-top: 10px;
+  padding-left: 7%;
 }
 
 #test1 {
-  margin-left: 55px;
-  margin-top: 40px;
+//   margin-left: 55px;
+//   margin-top: 40px;
+padding: 0;
 }
 
 .name {
@@ -355,11 +367,16 @@ color:#A164C2;
 
 .tab.col.s3:hover {
   background-color: #A164C2;
-  transition: 2s;
+
 }
 
 .tabs .tab a {
   color: black !important;
+  transition: all 0.25s ease;
+}
+
+.s3{
+  transition: all 0.25s ease;
 }
 
 .indicator {

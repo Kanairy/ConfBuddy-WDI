@@ -63,5 +63,17 @@
 }
 
 .modal-content-closebtn{
+  position: absolute;
+top: 0;
+right: 0;
+}
 
+.login-modal-content{
+  padding: 50px;
+}
+
+.login-modal-btn{
+  border: 1px solid black;
+margin: 0 auto;
+display: block;
 }
