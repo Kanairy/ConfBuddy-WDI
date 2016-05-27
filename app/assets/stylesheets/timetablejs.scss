@@ -6,6 +6,12 @@
   text-align: center;
   margin: 0 auto;
 }
+.modal-content-inner-image{
+  height: 200px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 .modal-content-presenter-img-container{
   height: 50px;
@@ -53,5 +59,9 @@
   .modal-content-timetable{
     padding: 50px;
   }
+
+}
+
+.modal-content-closebtn{
 
 }
