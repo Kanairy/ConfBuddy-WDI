@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is time for the annual WDI Conference 2016 on 4th of June. It is an extraordinary event combining tech, business and design offering keynotes from industry visionaries all around the world.
 
-Things you may want to cover:
+This year offers extra value for the user by introducing The Confbuddy - an app that matches you with a buddy at the event. Purpose is when the user logs in they list their strengths and what skills they are seeking and the algorithm takes care of pairing them up with a suitable buddy.
 
-* Ruby version
+This product will increase the networking possibilities in the event and make the day even more pleasurable for the visitors and encourage future innovation by meaningful brainstorming and conversations.
 
-* System dependencies
+User story:
+1. User registers to the event
+ - Fills contact details
+ - Chooses the keynotes
+ - Updates skills
+ - Fills in what skills are looked for
+2. User logs in
+3. User syncs Linkedin profile
+4. User can check from their profile events they are attending to and who their buddies are
 
-* Configuration
+Frameworks used:
+- Rails
+- Materialize
 
-* Database creation
+Libraries:
+- jQuery
+- Handlebars
+- Underscore.js
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Programming languages used:
+- Ruby 2.2.2p95
+- Javascript
+- CSS3
+- HTML5
+- Sass
