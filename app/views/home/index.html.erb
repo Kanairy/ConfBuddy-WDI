@@ -4,7 +4,7 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <br><br>
-                <h1 class="header center black-text text-lighten-2 element">WDI CONFRENCE</h1>
+                <h1 class="header center black-text text-lighten-2 element">WDI CONFERENCE</h1>
                 <div class="row center">
                     <h5 class="header col s12 light">FUTURE OF TECH BEGINS 4th OF JUNE 2016</h5>
                 </div>
@@ -139,9 +139,7 @@
                                           <div id="modal{{id}}" class="modal">
                                               <div class="modal-content modal-content-timetable">
                                                   <div class="row">
-
-                                                    <img class="modal-content-inner-image" src="{{ eventImg }}">
-
+                                                    <img class="modal-content-img" src="{{ eventImg }}">
                                                   </div>
 
                                                   <h4 class="modal-content-title">{{ eventName }}</h4>
@@ -182,11 +180,9 @@
                                                   </div>
 
                                                   <div class="modal-footer">
-
-                                                    <div class="modal-content-closebtn">
-                                                      <i class="material-icons">system_update_alt</i>
-                                                      <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
-
+                                                      <div class="">
+                                                        <i class="material-icons">system_update_alt</i>
+                                                        <a href="#!" class=" modal-action modal-close btn-flat">CLOSE</a>
                                                     </div>
                                                   </div>
                                               </div>
@@ -226,10 +222,9 @@
 
 <script>
 
-
     $(function () {
         $(".element").typed({
-            strings: ["WDI CONFERENCE."], typeSpeed: 15
+            strings: ["WDI CONFERENCE."], typeSpeed: 0
             // loop: true
         });
     });
@@ -257,6 +252,7 @@
     (function ($) {
         $(function () {
 
+            Error: source does not appear to be markup.
             $('.parallax').parallax();
 
         }); // end of document ready
