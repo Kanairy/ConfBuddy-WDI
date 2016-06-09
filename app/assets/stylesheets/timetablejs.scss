@@ -6,6 +6,12 @@
   text-align: center;
   margin: 0 auto;
 }
+.modal-content-inner-image{
+  height: 200px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 .modal-content-presenter-img-container{
   height: 50px;
@@ -54,4 +60,20 @@
     padding: 50px;
   }
 
+}
+
+.modal-content-closebtn{
+  position: absolute;
+top: 0;
+right: 0;
+}
+
+.login-modal-content{
+  padding: 50px;
+}
+
+.login-modal-btn{
+  border: 1px solid black;
+margin: 0 auto;
+display: block;
 }

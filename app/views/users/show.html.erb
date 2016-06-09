@@ -2,59 +2,93 @@
     <div class="row">
         <div class="col s12 profiletable">
             <ul class="tabs">
-                <li class="tab col s3">
+                <li class="tab col s3 profile-tabs">
                     <a href="#test1" onclick="Materialize.showStaggeredList('#staggered-test')">Profile</a>
                 </li>
 
-                <li class="tab col s3">
-                    <a href="#test2">Your events</a>
+                <li class="tab col s3 profile-tabs">
+                    <a href="#test2">Events</a>
                 </li>
-                <li class="tab col s3">
-                    <a href="#test3">Matches for your events</a>
+                <li class="tab col s3 profile-tabs">
+                    <a href="#test3">Matches</a>
                 </li>
-
 
             </ul>
         </div>
         <div id="test1" class="col s12">
             <div class="row">
-            <img class="avatar col s6" src="<%= @user.linkedin_image_url %>" alt="" style="width: 240px; padding: 15px">
-            <ul class="col s6 name">Hello <%= @user.first_name %> <%= @user.last_name %>!</ul>
-            <ul class="col s6"><b>Your email:</b> <%= @user.email %></ul>
-            <ul class="col s6"><b>Your strengths:</b> <%= @user.strength %></ul>
-            <ul class="col s6"><b>You are seeking:</b> <%= @user.seeking %></ul>
-            <ul class="col s6"><a href="<%= @user.linkedin_specialities %>">linkedin</a></ul>
-            <ul class="col s6"><b>Headline:</b> <%= @user.linkedin_headline %></ul>
-            <ul class="col s6"><b>Location:</b> <%= @user.linkedin_location %></ul>
-            <ul class="col s6"><b>Industry:</b> <%= @user.linkedin_industry %></ul>
 
-          <% if !current_user.linkedin_image_url %>
-            <ul class="col s6"><a href="/login/oauth2"><b>Link to your Linkedin</b></a></ul>
-          <% end %>
+                <div class="row">
+
+                  <div class="col m4 s12 profile-tabs-left">
+                    <img class="avatar col s12 m4" src="<%= @user.linkedin_image_url %>" alt="" style="width: 240px; padding: 15px">
+                  </div>
+                    <div class="col m4 s12 profile-tabs-left">
+
+                        <ul class="col s12 name">Hello
+                            <%= @user.first_name %>
+                            <%= @user.last_name %>!</ul>
+                        <ul class="col s12">
+                            <b>Your email:</b>
+                            <%= @user.email %></ul>
+                        <ul class="col s12">
+                            <b>Your strengths:</b>
+                            <%= @user.strength %></ul>
+                        <ul class="col s12">
+                            <b>You are seeking:</b>
+                            <%= @user.seeking %></ul>
+                        <ul class="col s12">
+                            <a href="<%= @user.linkedin_specialities %>">linkedin</a>
+                        </ul>
+                    </div>
+                    <div class="col m4 s12 profile-tabs-left">
+                        <ul class="col s12">
+                            <b>Headline:</b>
+                            <%= @user.linkedin_headline %></ul>
+                        <ul class="col s12">
+                            <b>Location:</b>
+                            <%= @user.linkedin_location %></ul>
+                        <ul class="col s12">
+                            <b>Industry:</b>
+                            <%= @user.linkedin_industry %></ul>
+                    </div>
+                </div>
+
+                <% if !current_user.linkedin_image_url %>
+                <ul class="col s6">
+                    <a href="/login/oauth2">
+                        <b>Link to your Linkedin</b>
+                    </a>
+                </ul>
+                <% end %>
             </div>
         </div>
         <div id="test2" class="col s12">
             <div class="userevents">
 
-            <% current_user.events.each do |event| %>
-            <b><%= event.name %></b> on <%= event.time %>
-            <p><img src="/<%= event.image%>" style="width: 200px"></p>
-            <hr>
-            <% end %>
+                <% current_user.events.each do |event| %>
+                <b><%= event.name %></b>
+                on
+                <%= event.time %>
+                <p><img src="/<%= event.image%>" style="width: 200px"></p>
+                <hr>
+                <% end %>
             </div>
         </div>
         <div id="test3" class="col s12">
             <div class="matchymatch col s12">
                 <% current_user.events.each do |event| %>
                 <div>
-                    <p><b><%= event.name %></b></p>
+                    <p>
+                        <b><%= event.name %></b>
+                    </p>
                 </div>
                 <div>
                     <% if current_user.get_buddy(event.id) %>
                     <% buddy = current_user.get_buddy(event.id) %>
-                      <% puts current_user %>
+                    <% puts current_user %>
                     <em>Your buddy for the event:</em>
-                      <%= buddy.first_name %>
+                    <%= buddy.first_name %>
                     <a href="<%= buddy.linkedin_specialities %>" style="color:#A164C2 !important">Linkedin</a>
                     <% end %>
                 </div>
