@@ -31,9 +31,9 @@ class SignupController < ApplicationController
 
   def oauth2
     LinkedIn.configure do |config|
-      config.client_id     = "7507jes2q9gtbj"
-      config.client_secret = "fAqqMb4Lu77Iubvn"
-      config.redirect_uri  = "http://127.0.0.1:3000/login/oatoken"
+      config.client_id     = "7507jes2q9gtbj" # MAKE ENV
+      config.client_secret = "fAqqMb4Lu77Iubvn" # MAKE ENV
+      config.redirect_uri  = "/login/oatoken" # UPDATE THIS TO ABSOLUTE PATH
     end
     @@oauth = LinkedIn::OAuth2.new
     url = @@oauth.auth_code_url

@@ -3,7 +3,7 @@
   function showCards() {
 
     $.ajax({
-      url: "http://127.0.0.1:3000/api/events"
+      url: "/api/events"
     }).done(function(events){
 
       $.each(events, function(index, event){
