@@ -28,6 +28,5 @@ Libraries:
 Programming languages used:
 - Ruby
 - Javascript
-- CSS3
 - HTML5
-- Sass
+- SASS
